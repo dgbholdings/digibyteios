@@ -25,8 +25,8 @@
 
 #import "BRBloomFilter.h"
 #import "BRTransaction.h"
-#import "NSMutableData+Bitcoin.h"
-#import "NSData+Bitcoin.h"
+#import "NSMutableData+DigiByte.h"
+#import "NSData+DigiByte.h"
 
 #define BLOOM_MAX_HASH_FUNCS 50
 

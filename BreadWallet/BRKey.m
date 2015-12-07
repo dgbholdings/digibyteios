@@ -24,9 +24,9 @@
 //  THE SOFTWARE.
 
 #import "BRKey.h"
-#import "NSString+Bitcoin.h"
-#import "NSData+Bitcoin.h"
-#import "NSMutableData+Bitcoin.h"
+#import "NSString+Base58.h"
+#import "NSData+DigiByte.h"
+#import "NSMutableData+DigiByte.h"
 
 #define USE_BASIC_CONFIG       1
 #define ENABLE_MODULE_RECOVERY 1

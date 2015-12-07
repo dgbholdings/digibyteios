@@ -1,5 +1,5 @@
 //
-//  NSData+Bitcoin.m
+//  NSData+DigiByte.m
 //  BreadWallet
 //
 //  Created by Aaron Voisine on 10/9/13.
@@ -23,7 +23,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "NSData+Bitcoin.h"
+#import "NSData+DigiByte.h"
 
 // bitwise left rotation
 #define rol32(a, b) (((a) << (b)) | ((a) >> (32 - (b))))
@@ -329,7 +329,7 @@ void PBKDF2(void *dk, size_t dklen, void (*hash)(void *, const void *, size_t), 
     memset(T, 0, sizeof(T));
 }
 
-@implementation NSData (Bitcoin)
+@implementation NSData (DigiByte)
 
 - (UInt160)SHA1
 {

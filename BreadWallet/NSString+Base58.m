@@ -23,9 +23,9 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "NSString+Bitcoin.h"
-#import "NSData+Bitcoin.h"
-#import "NSMutableData+Bitcoin.h"
+#import "NSString+Base58.h"
+#import "NSData+DigiByte.h"
+#import "NSMutableData+DigiByte.h"
 
 static const UniChar base58chars[] = {
     '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P',
@@ -33,7 +33,7 @@ static const UniChar base58chars[] = {
     'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
 };
 
-@implementation NSString (Bitcoin)
+@implementation NSString (Base58)
 
 + (NSString *)base58WithData:(NSData *)d
 {

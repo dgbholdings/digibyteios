@@ -27,7 +27,7 @@
 #import "BRTransactionEntity.h"
 #import "BRTransaction.h"
 #import "BRTxOutputEntity.h"
-#import "NSData+Bitcoin.h"
+#import "NSData+DigiByte.h"
 #import "NSManagedObject+Sugar.h"
 
 @implementation BRTxInputEntity

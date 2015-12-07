@@ -24,9 +24,9 @@
 //  THE SOFTWARE.
 
 #import "BRKey+BIP38.h"
-#import "NSString+Bitcoin.h"
-#import "NSData+Bitcoin.h"
-#import "NSMutableData+Bitcoin.h"
+#import "NSString+Base58.h"
+#import "NSData+DigiByte.h"
+#import "NSMutableData+DigiByte.h"
 
 // BIP38 is a method for encrypting private keys with a passphrase
 // https://github.com/bitcoin/bips/blob/master/bip-0038.mediawiki

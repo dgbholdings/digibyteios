@@ -103,7 +103,7 @@ void HMAC(void *md, void (*hash)(void *, const void *, size_t), size_t hlen, con
 void PBKDF2(void *dk, size_t dklen, void (*hash)(void *, const void *, size_t), size_t hlen,
             const void *pw, size_t pwlen, const void *salt, size_t slen, unsigned rounds);
 
-@interface NSData (Bitcoin)
+@interface NSData (DigiByte)
 
 - (UInt160)SHA1;
 - (UInt256)SHA256;

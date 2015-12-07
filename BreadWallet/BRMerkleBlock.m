@@ -24,12 +24,13 @@
 //  THE SOFTWARE.
 
 #import "BRMerkleBlock.h"
-#import "NSMutableData+Bitcoin.h"
-#import "NSData+Bitcoin.h"
+#import "NSMutableData+DigiByte.h"
+#import "NSData+DigiByte.h"
 
 #define MAX_TIME_DRIFT    (2*60*60)     // the furthest in the future a block is allowed to be timestamped
 #define MAX_PROOF_OF_WORK 0x1d00ffffu   // highest value for difficulty target (higher values are less difficult)
-#define TARGET_TIMESPAN   (14*24*60*60) // the targeted timespan between difficulty target adjustments
+// Sitt 2015-11-25 #define TARGET_TIMESPAN   (14*24*60*60) // the targeted timespan between difficulty target adjustments
+#define TARGET_TIMESPAN   (0.10*24*60*60) // the targeted timespan between difficulty target adjustments
 
 // from https://en.bitcoin.it/wiki/Protocol_specification#Merkle_Trees
 // Merkle trees are binary trees of hashes. Merkle trees in bitcoin use a double SHA-256, the SHA-256 hash of the
@@ -263,7 +264,7 @@ totalTransactions:(uint32_t)totalTransactions hashes:(NSData *)hashes flags:(NSD
     // TARGET_TIMESPAN happens to be a multiple of 256, and since timespan is at least TARGET_TIMESPAN/4, we don't lose
     // precision when target is multiplied by timespan and then divided by TARGET_TIMESPAN/256
     target *= timespan;
-    target /= TARGET_TIMESPAN >> 8;
+    target /= ((int)TARGET_TIMESPAN) >> 8;                                                                                       // Sitt 2015-12-03
     size--; // decrement size since we only divided by TARGET_TIMESPAN/256
     
     while (size < 1 || target > 0x007fffffULL) target >>= 8, size++; // normalize target for "compact" format

@@ -24,8 +24,8 @@
 //  THE SOFTWARE.
 
 #import "BRBIP39Mnemonic.h"
-#import "NSData+Bitcoin.h"
-#import "NSMutableData+Bitcoin.h"
+#import "NSData+DigiByte.h"
+#import "NSMutableData+DigiByte.h"
 
 #define WORDS @"BIP39Words"
 

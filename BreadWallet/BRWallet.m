@@ -32,8 +32,8 @@
 #import "BRTxOutputEntity.h"
 #import "BRTxMetadataEntity.h"
 #import "BRKeySequence.h"
-#import "NSData+Bitcoin.h"
-#import "NSMutableData+Bitcoin.h"
+#import "NSData+DigiByte.h"
+#import "NSMutableData+DigiByte.h"
 #import "NSManagedObject+Sugar.h"
 
 // chain position of first tx output address that appears in chain

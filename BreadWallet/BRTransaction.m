@@ -25,9 +25,9 @@
 
 #import "BRTransaction.h"
 #import "BRKey.h"
-#import "NSString+Bitcoin.h"
-#import "NSMutableData+Bitcoin.h"
-#import "NSData+Bitcoin.h"
+#import "NSString+Base58.h"
+#import "NSMutableData+DigiByte.h"
+#import "NSData+DigiByte.h"
 
 #define TX_VERSION    0x00000001u
 #define TX_LOCKTIME   0x00000000u

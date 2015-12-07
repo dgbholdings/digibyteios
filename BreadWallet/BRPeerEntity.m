@@ -25,7 +25,7 @@
 
 #import "BRPeerEntity.h"
 #import "BRPeer.h"
-#import "NSData+Bitcoin.h"
+#import "NSData+DigiByte.h"
 #import "NSManagedObject+Sugar.h"
 #import <arpa/inet.h>
 

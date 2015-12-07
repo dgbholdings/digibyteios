@@ -25,7 +25,8 @@
 
 #import <Foundation/Foundation.h>
 
-#define BLOCK_DIFFICULTY_INTERVAL 2016      // number of blocks between difficulty target adjustments
+// Sitt 2015-11-25 #define BLOCK_DIFFICULTY_INTERVAL 2016      // number of blocks between difficulty target adjustments
+#define BLOCK_DIFFICULTY_INTERVAL 144
 #define BLOCK_UNKNOWN_HEIGHT      INT32_MAX
 
 typedef union _UInt256 UInt256;

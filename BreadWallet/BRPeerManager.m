@@ -33,8 +33,8 @@
 #import "BRMerkleBlock.h"
 #import "BRMerkleBlockEntity.h"
 #import "BRWalletManager.h"
-#import "NSString+Bitcoin.h"
-#import "NSData+Bitcoin.h"
+#import "NSString+Base58.h"
+#import "NSData+DigiByte.h"
 #import "NSManagedObject+Sugar.h"
 #import <netdb.h>
 
@@ -46,27 +46,24 @@
 #define PROTOCOL_TIMEOUT     20.0
 #define MAX_CONNECT_FAILURES 20 // notify user of network problems after this many connect failures in a row
 #define CHECKPOINT_COUNT     (sizeof(checkpoint_array)/sizeof(*checkpoint_array))
-#define GENESIS_BLOCK_HASH   (*(UInt256 *)@(checkpoint_array[0].hash).hexToData.reverse.bytes)
+// Sitt 2015-11-09 #define GENESIS_BLOCK_HASH   (*(UInt256 *)@(checkpoint_array[0].hash).hexToData.reverse.bytes)
+#define GENESIS_BLOCK_HASH  (*(UInt256 *) ((uint32_t) @"7497ea1b465eb39f1c8f507bc877078fe016d6fcb6dfad3a64c98dcc6e1e8496".hash).hexToData.reverse.bytes)
+
 
 #if BITCOIN_TESTNET
 
 static const struct { uint32_t height; char *hash; uint32_t timestamp; uint32_t target; } checkpoint_array[] = {
-    {      0, "000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943", 1296688602, 0x1d00ffff },
-    {  20160, "000000001cf5440e7c9ae69f655759b17a32aad141896defd55bb895b7cfc44e", 1345001466, 0x1c4d1756 },
-    {  40320, "000000008011f56b8c92ff27fb502df5723171c5374673670ef0eee3696aee6d", 1355980158, 0x1d00ffff },
-    {  60480, "00000000130f90cda6a43048a58788c0a5c75fa3c32d38f788458eb8f6952cee", 1363746033, 0x1c1eca8a },
-    {  80640, "00000000002d0a8b51a9c028918db3068f976e3373d586f08201a4449619731c", 1369042673, 0x1c011c48 },
-    { 100800, "0000000000a33112f86f3f7b0aa590cb4949b84c2d9c673e9e303257b3be9000", 1376543922, 0x1c00d907 },
-    { 120960, "00000000003367e56e7f08fdd13b85bbb31c5bace2f8ca2b0000904d84960d0c", 1382025703, 0x1c00df4c },
-    { 141120, "0000000007da2f551c3acd00e34cc389a4c6b6b3fad0e4e67907ad4c7ed6ab9f", 1384495076, 0x1c0ffff0 },
-    { 161280, "0000000001d1b79a1aec5702aaa39bad593980dfe26799697085206ef9513486", 1388980370, 0x1c03fffc },
-    { 181440, "00000000002bb4563a0ec21dc4136b37dcd1b9d577a75a695c8dd0b861e1307e", 1392304311, 0x1b336ce6 },
-    { 201600, "0000000000376bb71314321c45de3015fe958543afcbada242a3b1b072498e38", 1393813869, 0x1b602ac0 }
+    { 50000, "e77a35893a5611c4154cc71f7a7f949e074143e66b05cac2bd8c1db1c752c2f8", 1392476904, 0x1c0dca73 },
+    { 384000, "0000000000000705b6b53f92625170e87d22a45df88797837ff1212ea8682f72", 1417688374, 0x1a0ab197 }
 };
 
+/* Sitt 2015-11-10
 static const char *dns_seeds[] = {
     "testnet-seed.breadwallet.com", "testnet-seed.bitcoin.petertodd.org.", "testnet-seed.bluematt.me.",
     "testnet-seed.alexykot.me."
+};*/
+static const char *dns_seeds[] = {
+    "seed1.digibyte.co", "seed2.hashdragon.com", "dgb.cryptoservices.net"
 };
 
 #else // main net
@@ -96,9 +93,13 @@ static const struct { uint32_t height; char *hash; uint32_t timestamp; uint32_t 
     { 383040, "00000000000000000a974fa1a3f84055ad5ef0b2f96328bc96310ce83da801c9", 1447236692, 0x1810b289 }
 };
 
+/* Sitt 2015-11-09
 static const char *dns_seeds[] = {
     "seed.breadwallet.com", "seed.bitcoin.sipa.be.", "dnsseed.bluematt.me.", "dnsseed.bitcoin.dashjr.org.",
     "seed.bitcoinstats.com.", "seed.bitnodes.io."
+};*/
+static const char *dns_seeds[] = {
+    "seed1.digibytewiki.com", "seed2.digihash.co", "dgb.cryptoservices.net"
 };
 
 #endif

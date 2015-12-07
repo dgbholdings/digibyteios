@@ -26,7 +26,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "BRKeySequence.h"
-#import "NSData+Bitcoin.h"
+#import "NSData+DigiByte.h"
 
 #define BRWalletBalanceChangedNotification @"BRWalletBalanceChangedNotification"
 

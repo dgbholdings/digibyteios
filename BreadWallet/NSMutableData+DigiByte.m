@@ -23,9 +23,9 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "NSMutableData+Bitcoin.h"
-#import "NSData+Bitcoin.h"
-#import "NSString+Bitcoin.h"
+#import "NSMutableData+DigiByte.h"
+#import "NSData+DigiByte.h"
+#import "NSString+Base58.h"
 
 static void *secureAllocate(CFIndex allocSize, CFOptionFlags hint, void *info)
 {
@@ -84,7 +84,7 @@ CFAllocatorRef SecureAllocator()
     return alloc;
 }
 
-@implementation NSMutableData (Bitcoin)
+@implementation NSMutableData (DigiByte)
 
 + (NSMutableData *)secureData
 {
@@ -178,7 +178,7 @@ CFAllocatorRef SecureAllocator()
     [self appendBytes:s.UTF8String length:l];
 }
 
-#pragma mark - bitcoin script
+#pragma mark - digibyte script
 
 - (void)appendScriptPushData:(NSData *)d
 {
@@ -233,7 +233,7 @@ CFAllocatorRef SecureAllocator()
     }
 }
 
-#pragma mark - bitcoin protocol
+#pragma mark - digibyte protocol
 
 - (void)appendMessage:(NSData *)message type:(NSString *)type;
 {

@@ -39,7 +39,7 @@
 #define BIP38_LOTSEQUENCE_FLAG 0x04
 #define BIP38_INVALID_FLAG     (0x10 | 0x08 | 0x02 | 0x01)
 
-@interface NSString (Bitcoin)
+@interface NSString (Base58)
 
 + (NSString *)base58WithData:(NSData *)d;
 + (NSString *)base58checkWithData:(NSData *)d;

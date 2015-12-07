@@ -25,7 +25,7 @@
 
 #import "BRMerkleBlockEntity.h"
 #import "BRMerkleBlock.h"
-#import "NSData+Bitcoin.h"
+#import "NSData+DigiByte.h"
 #import "NSManagedObject+Sugar.h"
 
 @implementation BRMerkleBlockEntity

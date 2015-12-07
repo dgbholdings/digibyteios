@@ -37,7 +37,7 @@ CFAllocatorRef SecureAllocator();
 
 CF_IMPLICIT_BRIDGING_DISABLED
 
-@interface NSMutableData (Bitcoin)
+@interface NSMutableData (DigiByte)
 
 + (NSMutableData *)secureData;
 + (NSMutableData *)secureDataWithLength:(NSUInteger)length;

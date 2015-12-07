@@ -30,8 +30,8 @@
 #import "BRTransaction.h"
 #import "BRMerkleBlock.h"
 #import "NSManagedObject+Sugar.h"
-#import "NSData+Bitcoin.h"
-#import "NSMutableData+Bitcoin.h"
+#import "NSData+DigiByte.h"
+#import "NSMutableData+DigiByte.h"
 
 @implementation BRTransactionEntity
 

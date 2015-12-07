@@ -25,9 +25,9 @@
 
 #import "BRBIP32Sequence.h"
 #import "BRKey.h"
-#import "NSString+Bitcoin.h"
-#import "NSData+Bitcoin.h"
-#import "NSMutableData+Bitcoin.h"
+#import "NSString+Base58.h"
+#import "NSData+DigiByte.h"
+#import "NSMutableData+DigiByte.h"
 
 #define BIP32_SEED_KEY "Bitcoin seed"
 #define BIP32_XPRV     "\x04\x88\xAD\xE4"
