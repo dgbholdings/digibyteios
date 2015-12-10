@@ -26,7 +26,7 @@
 #import "BRSeedViewController.h"
 #import "BRWalletManager.h"
 #import "BRPeerManager.h"
-#import "NSMutableData+Bitcoin.h"
+#import "NSMutableData+DigiByte.h"
 #import "BREventManager.h"
 
 

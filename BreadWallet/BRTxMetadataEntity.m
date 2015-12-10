@@ -26,8 +26,8 @@
 #import "BRTxMetadataEntity.h"
 #import "BRTransaction.h"
 #import "NSManagedObject+Sugar.h"
-#import "NSData+Bitcoin.h"
-#import "NSMutableData+Bitcoin.h"
+#import "NSData+DigiByte.h"
+#import "NSMutableData+DigiByte.h"
 
 @implementation BRTxMetadataEntity
 

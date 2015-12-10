@@ -89,8 +89,9 @@ shouldAllowExtensionPointIdentifier:(NSString *)extensionPointIdentifier
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication
 annotation:(id)annotation
 {
-    if (! [url.scheme isEqual:@"bitcoin"] && ! [url.scheme isEqual:@"bread"]) {
-        [[[UIAlertView alloc] initWithTitle:@"Not a bitcoin URL" message:url.absoluteString delegate:nil
+    // Sitt 2015-12-08 Initial Digibyte changes
+    if (! [url.scheme isEqual:@"digibyte"] && ! [url.scheme isEqual:@"bread"]) {
+        [[[UIAlertView alloc] initWithTitle:@"Not a digibyte URL" message:url.absoluteString delegate:nil
           cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
         return NO;
     }

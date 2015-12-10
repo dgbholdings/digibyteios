@@ -34,9 +34,9 @@
 #import "BRMerkleBlock.h"
 #import "BRPaymentRequest.h"
 #import "BRPaymentProtocol.h"
-#import "NSData+Bitcoin.h"
-#import "NSMutableData+Bitcoin.h"
-#import "NSString+Bitcoin.h"
+#import "NSData+DigiByte.h"
+#import "NSMutableData+DigiByte.h"
+#import "NSString+Base58.h"
 
 //#define SKIP_BIP38 1
 
@@ -65,7 +65,7 @@
 - (void)testBase58
 {
     // test bad input
-    NSString *s = [NSString base58WithData:[BTC @"#&$@*^(*#!^" base58ToData]];
+    NSString *s = [NSString base58WithData:[DGB @"#&$@*^(*#!^" base58ToData]];
 
     XCTAssertTrue(s.length == 0, @"[NSString base58WithData:]");
     
@@ -1065,8 +1065,9 @@
     XCTAssertEqual(w.balance, SATOSHIS/2, @"[BRWallet balance]");
 
 #if ! BITCOIN_TESTNET
-    w = [[BRWallet alloc] initWithContext:nil sequence:[BRBIP32Sequence new] masterPublicKey:nil
-         seed:^NSData *(NSString *authprompt, uint64_t amount) { return [NSData data]; }];
+    // Sitt 2015-12-07
+    //w = [[BRWallet alloc] initWithContext:nil sequence:[BRBIP32Sequence new] masterPublicKey:nil
+    //     seed:^NSData *(NSString *authprompt, uint64_t amount) { return [NSData data]; }];
     
     NSMutableSet *allAddresses = (id)w.addresses;
 

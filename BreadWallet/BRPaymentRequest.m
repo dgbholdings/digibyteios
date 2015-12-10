@@ -25,8 +25,8 @@
 
 #import "BRPaymentRequest.h"
 #import "BRPaymentProtocol.h"
-#import "NSString+Bitcoin.h"
-#import "NSMutableData+Bitcoin.h"
+#import "NSString+Base58.h"
+#import "NSMutableData+DigiByte.h"
 
 #define USER_AGENT [NSString stringWithFormat:@"/breadwallet:%@/",\
                     NSBundle.mainBundle.infoDictionary[@"CFBundleShortVersionString"]]

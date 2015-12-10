@@ -27,8 +27,8 @@
 #import "BRWalletManager.h"
 #import "BRMnemonic.h"
 #import "BRAddressEntity.h"
-#import "NSMutableData+Bitcoin.h"
-#import "NSString+Bitcoin.h"
+#import "NSMutableData+DigiByte.h"
+#import "NSString+Base58.h"
 #import "NSManagedObject+Sugar.h"
 #import "BREventManager.h"
 

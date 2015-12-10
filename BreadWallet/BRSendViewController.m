@@ -35,9 +35,9 @@
 #import "BRPaymentProtocol.h"
 #import "BRKey.h"
 #import "BRTransaction.h"
-#import "NSString+Bitcoin.h"
-#import "NSMutableData+Bitcoin.h"
-#import "NSData+Bitcoin.h"
+#import "NSString+Base58.h"
+#import "NSMutableData+DigiByte.h"
+#import "NSData+DigiByte.h"
 #import "BREventManager.h"
 
 #define SCAN_TIP      NSLocalizedString(@"Scan someone else's QR code to get their bitcoin address. "\

@@ -9,8 +9,8 @@
 #ifndef __IPHONE_7_0
 #warning "This project uses features only available in iOS SDK 7.0 and later."
 #endif
-
-#define BITCOIN_TESTNET 1
+// Sitt 2015-12-08 Disabled Testnet
+#define BITCOIN_TESTNET 0
 
 #if ! DEBUG
 #define NSLog(...)

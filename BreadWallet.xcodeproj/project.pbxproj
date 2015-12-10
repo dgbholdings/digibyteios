@@ -795,7 +795,7 @@
 					};
 					BAE12BE41B2DEE7F00895CC5 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 4R7S6N88W9;
+						DevelopmentTeam = 8C7Y6KGD57;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;

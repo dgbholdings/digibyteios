@@ -25,11 +25,8 @@
 
 #import <Foundation/Foundation.h>
 
-#if BITCOIN_TESTNET
-#define BITCOIN_MAGIC_NUMBER 0x0709110bu
-#else
-#define BITCOIN_MAGIC_NUMBER 0xd9b4bef9u
-#endif
+// Sitt 2015-12-08 Digibyte Initial Changes
+#define DIGIBYTE_MAGIC_NUMBER 0xdab6c3fau
 
 CF_IMPLICIT_BRIDGING_ENABLED
 
