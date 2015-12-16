@@ -56,46 +56,13 @@
 //#define GENESIS_BLOCK_HASH  (*(UInt256 *)@(checkpoint_array[0].hash).hexToData.reverse.bytes)
 #define GENESIS_BLOCK_HASH  (*(UInt256 *) @"7497ea1b465eb39f1c8f507bc877078fe016d6fcb6dfad3a64c98dcc6e1e8496".hexToData.reverse.bytes)
 
-#if BITCOIN_TESTNET
-
-static const struct { uint32_t height; char *hash; uint32_t timestamp; uint32_t target; } checkpoint_array[] = {
-    {  50000, "e77a35893a5611c4154cc71f7a7f949e074143e66b05cac2bd8c1db1c752c2f8", 1392476904, 0x1c0dca73 },
-    { 384000, "0000000000000705b6b53f92625170e87d22a45df88797837ff1212ea8682f72", 1417688374, 0x1a0ab197 },
-};
-
-/* Sitt 2015-11-10
-static const char *dns_seeds[] = {
-    "testnet-seed.breadwallet.com", "testnet-seed.bitcoin.petertodd.org.", "testnet-seed.bluematt.me.",
-    "testnet-seed.alexykot.me."
-};*/
-static const char *dns_seeds[] = {
-    "seed1.digibyte.co", "seed2.hashdragon.com", "dgb.cryptoservices.net"
-};
-
-#else // main net
-
 // blockchain checkpoints - these are also used as starting points for partial chain downloads, so they need to be at
 // difficulty transition boundaries in order to verify the block difficulty at the immediately following transition
 static const struct { uint32_t height; char *hash; uint32_t timestamp; uint32_t target; } checkpoint_array[] = {
-//    {     0, "852c475c605e1f20bbe60219c811abaeef08bf0d4ff87eef59200fd7a7567fa7", 1413145109, 0x1b336ce6u },
+//   {     0, "852c475c605e1f20bbe60219c811abaeef08bf0d4ff87eef59200fd7a7567fa7", 1413145109, 0x1b336ce6 },
 //    {  50000, "e77a35893a5611c4154cc71f7a7f949e074143e66b05cac2bd8c1db1c752c2f8", 1392476904, 0x1c0dca73 },
-//    { 384000, "0000000000000705b6b53f92625170e87d22a45df88797837ff1212ea8682f72", 1417688374, 0x1a0ab197 }
-    {     0, "7497ea1b465eb39f1c8f507bc877078fe016d6fcb6dfad3a64c98dcc6e1e8496", 0, 0 },
-    {  5000, "95753d284404118788a799ac754a3fdb5d817f5bd73a78697dfe40985c085596", 0, 0 },
-    { 10000, "12f90b8744f3b965e107ad9fd8b33ba6d95a91882fbc4b5f8588d70d494bed88", 0, 0},
-    { 12000, "1266acba91dc3d5737d9e8c6e21b7a91901f7f4c48082ce3d84dd394a13e415", 0, 0},
-    { 14300, "24f665d71b0c6c88f6f72a863e9f1ba8e835cc52d13ad895dc5426021c7d2c48", 0, 0},
-    { 30000, "17c69ef6b403571b1bd333c91fbe116e451ba8281be12aa6bafb0486764bb315", 0, 0},
-    { 60000, "57b2c612b60462a3d6c388c8b30a68cb6f7e2034eea962b12b7ef506454fa2c1", 0, 0},
-    { 110000, "ab2da24656493015f2fd288994661e1cc657d90aa34c755514af044aaaf1569d", 0, 0},
-    { 141100, "145c2cb5239a4e019c730ce8468d927a3955529c2bae077850783da97ddbca05", 0, 0},
-    { 141656, "683d27720429f28bcfa22d8385b7a06f307c8fd918d49215148fbd41a0dda595", 0, 0},
-    { 245000, "852c475c605e1f20bbe60219c811abaeef08bf0d4ff87eef59200fd7a7567fa7", 0, 0},
-    { 302000, "fb6d14ac5e0208f00d941db1fcbfe050f093cfd0c05ed151c809e4428bc14286", 0, 0},
-    { 331000, "bd1a1d002750e1648746eb29c78d30fa1043c8b6f89d82924c4488be06fa3d19", 0, 0},
-    { 360000, "8fee7e3f6c38dccd3047a3e4667c63406f835c2890024030a2ab2dc6dba7c912", 0, 0},
-    { 400100, "82325a97cd97ac14b0a57408f881b1a9fc40174f8430a4580429499ac5d153c8", 0, 0},
-    { 521000, "d23fd1e1f994c0586d761b71bb3530e9ab45bd0fabda3a5a2e394f3dc4d9bb04", 1416891634, 1046018}
+    { 384000, "0000000000000705b6b53f92625170e87d22a45df88797837ff1212ea8682f72", 1417688374, 0x1a0ab197 },
+    { 521000, "d23fd1e1f994c0586d761b71bb3530e9ab45bd0fabda3a5a2e394f3dc4d9bb04", 1416891634, 0x1b336ce6}
 };
 
 /* Sitt 2015-11-09
@@ -104,11 +71,10 @@ static const char *dns_seeds[] = {
     "seed.bitcoinstats.com.", "seed.bitnodes.io."
 };*/
 static const char *dns_seeds[] = {
-    "seed1.digibyte.co", "seed2.hashdragon.com", "dgb.cryptoservices.net",
-    "seed1.digibytewiki.com", "seed2.digihash.co", "dgb.cryptoservices.net"
+//    "seed1.digibyte.co", "seed2.hashdragon.com", "dgb.cryptoservices.net"
+    "seed1.digibytewiki.com", "seed2.digihash.co", "dgb.cryptoservices.net" // Testnet
 };
 
-#endif
 
 @interface BRPeerManager ()
 
