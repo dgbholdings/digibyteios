@@ -61,8 +61,9 @@
 static const struct { uint32_t height; char *hash; uint32_t timestamp; uint32_t target; } checkpoint_array[] = {
 //   {     0, "852c475c605e1f20bbe60219c811abaeef08bf0d4ff87eef59200fd7a7567fa7", 1413145109, 0x1b336ce6 },
 //    {  50000, "e77a35893a5611c4154cc71f7a7f949e074143e66b05cac2bd8c1db1c752c2f8", 1392476904, 0x1c0dca73 },
-    { 384000, "0000000000000705b6b53f92625170e87d22a45df88797837ff1212ea8682f72", 1417688374, 0x1a0ab197 },
-    { 521000, "d23fd1e1f994c0586d761b71bb3530e9ab45bd0fabda3a5a2e394f3dc4d9bb04", 1416891634, 0x1b336ce6}
+//    { 384000, "0000000000000705b6b53f92625170e87d22a45df88797837ff1212ea8682f72", 1417688374, 0x1a0ab197 },
+//    { 521000, "d23fd1e1f994c0586d761b71bb3530e9ab45bd0fabda3a5a2e394f3dc4d9bb04", 1416891634, 0x1b336ce6},
+    { 1666000, "afcf9dda89a05be10bb00800eb3a8aa6905a6a36f2c3a8914d3b984bbaeba0e3", 1452769989, 0x1b5145d7}
 };
 
 /* Sitt 2015-11-09
@@ -72,7 +73,7 @@ static const char *dns_seeds[] = {
 };*/
 static const char *dns_seeds[] = {
 //    "seed1.digibyte.co", "seed2.hashdragon.com", "dgb.cryptoservices.net"
-    "seed1.digibytewiki.com", "seed2.digihash.co", "dgb.cryptoservices.net" // Testnet
+    "216.250.125.121", "69.164.198.161" // Testnet
 };
 
 
