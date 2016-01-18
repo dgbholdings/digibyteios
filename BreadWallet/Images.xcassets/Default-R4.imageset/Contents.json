@@ -4,6 +4,10 @@
       "idiom" : "universal",
       "filename" : "Default-R4.png",
       "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
     }
   ],
   "info" : {
