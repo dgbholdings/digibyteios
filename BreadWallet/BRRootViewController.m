@@ -40,9 +40,9 @@
 #import <sys/stat.h>
 #import <mach-o/dyld.h>
 
-#define BALANCE_TIP NSLocalizedString(@"This is your bitcoin balance. Bitcoin is a currency. "\
+#define BALANCE_TIP NSLocalizedString(@"This is your digibyte balance. DigiByte is a currency. "\
                                        "The exchange rate changes with the market.", nil)
-#define BITS_TIP    NSLocalizedString(@"%@ is for 'bits'. %@ = 1 bitcoin.", nil)
+#define BITS_TIP    NSLocalizedString(@"%@ is for 'bits'. %@ = 1 digibyte.", nil)
 
 #define BACKUP_DIALOG_TIME_KEY @"BACKUP_DIALOG_TIME"
 #define BALANCE_KEY            @"BALANCE"
@@ -195,7 +195,7 @@
                 [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"WARNING", nil)
                   message:NSLocalizedString(@"DEVICE SECURITY COMPROMISED\n"
                                             "Any 'jailbreak' app can access any other app's keychain data "
-                                            "(and steal your bitcoins). "
+                                            "(and steal your digibyte). "
                                             "Wipe this wallet immediately and restore on a secure device.", nil)
                  delegate:self cancelButtonTitle:NSLocalizedString(@"ignore", nil)
                  otherButtonTitles:NSLocalizedString(@"wipe", nil), nil] show];
@@ -204,7 +204,7 @@
                 [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"WARNING", nil)
                   message:NSLocalizedString(@"DEVICE SECURITY COMPROMISED\n"
                                             "Any 'jailbreak' app can access any other app's keychain data "
-                                            "(and steal your bitcoins).", nil)
+                                            "(and steal your digibyte).", nil)
                   delegate:self cancelButtonTitle:NSLocalizedString(@"ignore", nil)
                   otherButtonTitles:NSLocalizedString(@"close app", nil), nil] show];
             }
@@ -494,7 +494,7 @@
     
     if (sender == self) { // show recovery phrase
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"WARNING", nil)
-          message:NSLocalizedString(@"\nDO NOT let anyone see your recovery phrase or they can spend your bitcoins.\n\n"
+          message:NSLocalizedString(@"\nDO NOT let anyone see your recovery phrase or they can spend your digibyte.\n\n"
                                     "NEVER type your recovery phrase into password managers or elsewhere. Other "
                                     "devices may be infected.\n", nil)
           delegate:[(id)segue.destinationViewController viewControllers].firstObject
@@ -719,7 +719,7 @@
     [defs setDouble:now forKey:BACKUP_DIALOG_TIME_KEY];
     
     [[[UIAlertView alloc]
-      initWithTitle:(first) ? NSLocalizedString(@"you received bitcoin!", nil) : NSLocalizedString(@"IMPORTANT", nil)
+      initWithTitle:(first) ? NSLocalizedString(@"you received digibyte!", nil) : NSLocalizedString(@"IMPORTANT", nil)
       message:[NSString stringWithFormat:NSLocalizedString(@"\n%@\n\nif you ever lose your phone, you will need it to "
                                                            "recover your wallet", nil),
                (first) ? NSLocalizedString(@"next, write down your recovery phrase", nil) :

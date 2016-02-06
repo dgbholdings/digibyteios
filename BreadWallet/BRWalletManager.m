@@ -43,11 +43,12 @@
 #define CIRCLE  @"\xE2\x97\x8C" // dotted circle (utf-8)
 #define DOT     @"\xE2\x97\x8F" // black circle (utf-8)
 
-#define BASE_URL       @"https://blockchain.info"
+#define BASE_URL       @"https://digiexplorer.info"
 // Sitt 2015-11-25 #define UNSPENT_URL    @"https://api.blockcypher.com/v1/btc/%@/addrs/%@?unspentOnly=1&includeScript=1&limit=200"
-#define UNSPENT_URL    BASE_URL "/unspent?active="
+#define UNSPENT_URL    BASE_URL "/api/addr/%@/utxo"
 // Sitt 2015-11-25 #define TICKER_URL     @"https://bitpay.com/rates"
-#define TICKER_URL     BASE_URL "/ticker"
+#define TICKER_URL     @"http://digiticker.info/rates"
+#define POLONIEX_TICKER_URL  @"https://poloniex.com/public?command=returnOrderBook&currencyPair=BTC_DGB&depth=1"
 
 #define FEE_PER_KB_URL @"https://api.breadwallet.com/v1/fee-per-kb"
 
@@ -55,10 +56,12 @@
 #define SEC_ATTR_SERVICE      @"org.voisine.breadwallet"
 #define DEFAULT_CURRENCY_CODE @"USD"
 #define DEFAULT_SPENT_LIMIT   SATOSHIS
-#define DEFAULT_FEE_PER_KB    ((TX_FEE_PER_KB*1000 + 190)/191) // default fee-per-kb to match standard fee on 191byte tx
-#define MAX_FEE_PER_KB        ((100100*1000 + 190)/191) // slightly higher than a 1000bit fee on 191byte tx
+#define DEFAULT_FEE_PER_KB    10000000// default fee-per-kb to match standard fee on 191byte tx
+#define MAX_FEE_PER_KB        100000000 // slightly higher than a 1000bit fee on 191byte tx
 
 #define LOCAL_CURRENCY_CODE_KEY @"LOCAL_CURRENCY_CODE"
+#define POLONIEX_DASH_BTC_PRICE_KEY  @"POLONIEX_DASH_BTC_PRICE"
+#define POLONIEX_DASH_BTC_UPDATE_TIME_KEY  @"POLONIEX_DASH_BTC_UPDATE_TIME"
 #define CURRENCY_CODES_KEY      @"CURRENCY_CODES"
 #define CURRENCY_NAMES_KEY      @"CURRENCY_NAMES"
 #define CURRENCY_PRICES_KEY     @"CURRENCY_PRICES"
@@ -226,8 +229,8 @@ static NSString *getKeychainString(NSString *key, NSError **error)
                                   stringByReplacingCharactersInRange:[self.format.positiveFormat rangeOfString:@"#"]
                                   withString:@"-#"];
     self.format.currencyCode = @"XBT";
-    self.format.currencySymbol = DGBITS NARROW_NBSP;
-    self.format.maximumFractionDigits = 2;
+    self.format.currencySymbol = DGB NARROW_NBSP;
+    self.format.maximumFractionDigits = 8;
     self.format.minimumFractionDigits = 0; // iOS 8 bug, minimumFractionDigits now has to be set after currencySymbol
     self.format.maximum = @(MAX_MONEY/(int64_t)pow(10.0, self.format.maximumFractionDigits));
     _localFormat = [NSNumberFormatter new];
@@ -874,21 +877,21 @@ static NSString *getKeychainString(NSString *key, NSError **error)
             if (now > self.secureTime) [defs setDouble:now forKey:SECURE_TIME_KEY];
         }
 
-        if (error || ! [json isKindOfClass:[NSDictionary class]] || ! [json[@"data"] isKindOfClass:[NSArray class]]) {
-            NSLog(@"unexpected response from %@:\n%@", req.URL.host,
-                  [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-            return;
-        }
+        //if (error || ! [json isKindOfClass:[NSDictionary class]] || ! [json isKindOfClass:[NSArray class]]) {
+        //    NSLog(@"unexpected response from %@:\n%@", req.URL.host,
+        //          [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+        //    return;
+        //}
         
-        for (NSDictionary *d in json[@"data"]) {
-            if (! [d isKindOfClass:[NSDictionary class]] || ! [d[@"code"] isKindOfClass:[NSString class]] ||
-                ! [d[@"name"] isKindOfClass:[NSString class]] || ! [d[@"rate"] isKindOfClass:[NSNumber class]]) {
-                NSLog(@"unexpected response from %@:\n%@", req.URL.host,
-                      [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-                return;
-            }
+        for (NSDictionary *d in json) {
+            //if (! [d isKindOfClass:[NSDictionary class]] || ! [d[@"code"] isKindOfClass:[NSString class]] ||
+            //    ! [d[@"name"] isKindOfClass:[NSString class]] || ! [d[@"rate"] isKindOfClass:[NSNumber class]]) {
+            //    NSLog(@"unexpected response from %@:\n%@", req.URL.host, d,
+            //          [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+            //    return;
+            //}
            
-            if ([d[@"code"] isEqual:@"DGB"]) continue;
+            //if ([d[@"code"] isEqual:@"BTC"]) continue;
             [codes addObject:d[@"code"]];
             [names addObject:d[@"name"]];
             [rates addObject:d[@"rate"]];
@@ -1132,7 +1135,9 @@ completion:(void (^)(BRTransaction *tx, uint64_t fee, NSError *error))completion
 
 - (NSString *)localCurrencyStringForAmount:(int64_t)amount
 {
+
     if (amount == 0) return [self.localFormat stringFromNumber:@(0)];
+    //amount = amount / 10000000;
     if (self.localPrice.doubleValue <= DBL_EPSILON) return @""; // no exchange rate data
     
     NSDecimalNumber *n = [[[NSDecimalNumber decimalNumberWithDecimal:self.localPrice.decimalValue]

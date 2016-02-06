@@ -35,9 +35,9 @@
 #import "BREventManager.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 
-#define QR_TIP      NSLocalizedString(@"Let others scan this QR code to get your bitcoin address. Anyone can send "\
-                    "bitcoins to your wallet by transferring them to your address.", nil)
-#define ADDRESS_TIP NSLocalizedString(@"This is your bitcoin address. Tap to copy it or send it by email or sms. The "\
+#define QR_TIP      NSLocalizedString(@"Let others scan this QR code to get your digibyte address. Anyone can send "\
+                    "digibyte to your wallet by transferring them to your address.", nil)
+#define ADDRESS_TIP NSLocalizedString(@"This is your digibyte address. Tap to copy it or send it by email or sms. The "\
                     "address will change each time you receive funds, but old addresses always work.", nil)
 
 @interface BRReceiveViewController ()
@@ -243,7 +243,7 @@
     BOOL req = (_paymentRequest) ? YES : NO;
     UIActionSheet *actionSheet = [UIActionSheet new];
 
-    actionSheet.title = [NSString stringWithFormat:NSLocalizedString(@"Receive bitcoins at this address: %@", nil),
+    actionSheet.title = [NSString stringWithFormat:NSLocalizedString(@"Receive digibyte at this address: %@", nil),
                self.paymentAddress];
     actionSheet.delegate = self;
     [actionSheet addButtonWithTitle:(req) ? NSLocalizedString(@"copy request to clipboard", nil) :
@@ -295,7 +295,7 @@
         if ([MFMailComposeViewController canSendMail]) {
             MFMailComposeViewController *composeController = [MFMailComposeViewController new];
             
-            composeController.subject = NSLocalizedString(@"Bitcoin address", nil);
+            composeController.subject = NSLocalizedString(@"DigiByte address", nil);
             [composeController setMessageBody:self.paymentRequest.string isHTML:NO];
             [composeController addAttachmentData:UIImagePNGRepresentation(self.qrView.image) mimeType:@"image/png"
              fileName:@"qr.png"];
@@ -317,7 +317,7 @@
             MFMessageComposeViewController *composeController = [MFMessageComposeViewController new];
 
             if ([MFMessageComposeViewController canSendSubject]) {
-                composeController.subject = NSLocalizedString(@"Bitcoin address", nil);
+                composeController.subject = NSLocalizedString(@"DigiByte address", nil);
             }
             
             composeController.body = self.paymentRequest.string;
@@ -373,7 +373,7 @@ error:(NSError *)error
     
     if (amount < TX_MIN_OUTPUT_AMOUNT) {
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"amount too small", nil)
-          message:[NSString stringWithFormat:NSLocalizedString(@"bitcoin payments can't be less than %@", nil),
+          message:[NSString stringWithFormat:NSLocalizedString(@"digibyte payments can't be less than %@", nil),
                    [manager stringForAmount:TX_MIN_OUTPUT_AMOUNT]]
           delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", nil) otherButtonTitles:nil] show];
         [BREventManager saveEvent:@"receive:amount_too_small"];

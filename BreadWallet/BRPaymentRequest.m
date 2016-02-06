@@ -83,7 +83,7 @@
     NSURL *url = [NSURL URLWithString:s];
     
     if (! url || ! url.scheme) {
-        url = [NSURL URLWithString:[NSString stringWithFormat:@"bitcoin://%@", s]];
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"digibyte://%@", s]];
     }
     else if (! url.host && url.resourceSpecifier) {
         url = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@", url.scheme, url.resourceSpecifier]];
@@ -91,7 +91,7 @@
     
     self.scheme = url.scheme;
     
-    if ([url.scheme isEqual:@"bitcoin"]) {
+    if ([url.scheme isEqual:@"digibyte"]) {
         self.paymentAddress = url.host;
     
         //TODO: correctly handle unknown but required url arguments (by reporting the request invalid)
@@ -126,9 +126,9 @@
 
 - (NSString *)string
 {
-    if (! [self.scheme isEqual:@"bitcoin"]) return self.r;
+    if (! [self.scheme isEqual:@"digibyte"]) return self.r;
 
-    NSMutableString *s = [NSMutableString stringWithString:@"bitcoin:"];
+    NSMutableString *s = [NSMutableString stringWithString:@"digibyte:"];
     NSMutableArray *q = [NSMutableArray array];
     NSMutableCharacterSet *charset = [[NSCharacterSet URLQueryAllowedCharacterSet] mutableCopy];
     

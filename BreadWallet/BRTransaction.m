@@ -212,7 +212,7 @@ outputAddresses:(NSArray *)addresses outputAmounts:(NSArray *)amounts
 
 - (uint64_t)standardFee
 {
-    return ((self.size + 999)/1000)*TX_FEE_PER_KB;
+    return 100000000;
 }
 
 // checks if all signatures exist, but does not verify them

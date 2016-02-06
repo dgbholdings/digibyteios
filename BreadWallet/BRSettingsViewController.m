@@ -152,13 +152,13 @@
         self.selectorType = 1;
         self.selectorOptions =
             @[NSLocalizedString(@"always require passcode", nil),
-              [NSString stringWithFormat:@"%@      (%@)", [manager stringForAmount:SATOSHIS/10],
-               [manager localCurrencyStringForAmount:SATOSHIS/10]],
+              [NSString stringWithFormat:@"%@      (%@)", [manager stringForAmount:SATOSHIS],
+               [manager localCurrencyStringForAmount:SATOSHIS]],
               [NSString stringWithFormat:@"%@   (%@)", [manager stringForAmount:SATOSHIS],
                [manager localCurrencyStringForAmount:SATOSHIS]],
-              [NSString stringWithFormat:@"%@ (%@)", [manager stringForAmount:SATOSHIS*10],
-               [manager localCurrencyStringForAmount:SATOSHIS*10]]];
-        if (manager.spendingLimit > SATOSHIS*10) manager.spendingLimit = SATOSHIS*10;
+              [NSString stringWithFormat:@"%@ (%@)", [manager stringForAmount:SATOSHIS],
+               [manager localCurrencyStringForAmount:SATOSHIS]]];
+        if (manager.spendingLimit > SATOSHIS) manager.spendingLimit = SATOSHIS;
         self.selectedOption = self.selectorOptions[(log10(manager.spendingLimit) < 6) ? 0 :
                                                    (NSUInteger)log10(manager.spendingLimit) - 6];
         self.noOptionsText = nil;
@@ -370,7 +370,7 @@
     [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"WARNING", nil)
                                 message:[NSString stringWithFormat:@"\n%@\n\n%@\n\n%@\n",
                                          [NSLocalizedString(@"\nDO NOT let anyone see your recovery\n"
-                                                            "phrase or they can spend your bitcoins.\n", nil)
+                                                            "phrase or they can spend your digibyte.\n", nil)
                                           stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]],
                                          [NSLocalizedString(@"\nNEVER type your recovery phrase into\n"
                                                             "password managers or elsewhere.\n"

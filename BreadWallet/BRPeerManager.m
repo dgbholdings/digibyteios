@@ -73,7 +73,7 @@ static const char *dns_seeds[] = {
 };*/
 static const char *dns_seeds[] = {
 //    "seed1.digibyte.co", "seed2.hashdragon.com", "dgb.cryptoservices.net"
-    "216.250.125.121", "69.164.198.161" // Testnet
+    "216.250.125.121", "69.164.198.161", "163.172.13.124"// Testnet
 };
 
 
