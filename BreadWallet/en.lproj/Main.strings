@@ -8,8 +8,8 @@
 /* Class = "UIButton"; normalTitle = "recover wallet"; ObjectID = "4w7-k8-9wY"; */
 "4w7-k8-9wY.normalTitle" = "recover wallet";
 
-/* Class = "UILabel"; text = "breadwallet.com\n"; ObjectID = "5OA-tB-Exg"; */
-"5OA-tB-Exg.text" = "breadwallet.com\n";
+/* Class = "UILabel"; text = "digibyte.co\n"; ObjectID = "5OA-tB-Exg"; */
+"5OA-tB-Exg.text" = "digibyte.co\n";
 
 /* Class = "UILabel"; text = "local currency"; ObjectID = "8e2-ar-Ehc"; */
 "8e2-ar-Ehc.text" = "local currency";
@@ -26,8 +26,8 @@
 /* Class = "UILabel"; text = "start/recover another wallet"; ObjectID = "D1b-HB-lKH"; */
 "D1b-HB-lKH.text" = "start/recover another wallet";
 
-/* Class = "UILabel"; text = "exchange rate data provided by\nbitpay.com/rates"; ObjectID = "D4H-hd-LsX"; */
-"D4H-hd-LsX.text" = "exchange rate data provided by\nbitpay.com/rates";
+/* Class = "UILabel"; text = "exchange rate data provided by\ndigiticker.info/rates"; ObjectID = "D4H-hd-LsX"; */
+"D4H-hd-LsX.text" = "exchange rate data provided by\ndigiticker.info/rates";
 
 /* Class = "UITextField"; placeholder = "ƀ 0.00"; ObjectID = "DLS-lz-uxJ"; */
 "DLS-lz-uxJ.placeholder" = "ƀ 0.00";
@@ -218,8 +218,8 @@
 /* Class = "UILabel"; text = "ƀ 1,000,000"; ObjectID = "ue1-2S-fEr"; */
 "ue1-2S-fEr.text" = "ƀ 1,000,000";
 
-/* Class = "UILabel"; text = "breadwallet v%ver%%net%\ncopyright © 2015 Aaron Voisine\n\nthis app is open source"; ObjectID = "uvz-hk-Nr4"; */
-"uvz-hk-Nr4.text" = "breadwallet v%ver%%net%\ncopyright © 2015 Aaron Voisine\n\nthis app is open source";
+/* Class = "UILabel"; text = "digiwallet v%ver%%net%\ncopyright © 2015 DigiByte LLC\n\nthis app is open source"; ObjectID = "uvz-hk-Nr4"; */
+"uvz-hk-Nr4.text" = "digiwallet v%ver%%net%\ncopyright © 2015 DigiByte LLC\n\nthis app is open source";
 
 /* Class = "UILabel"; text = "start a new wallet by generating a wallet recovery phrase"; ObjectID = "wDZ-DN-szv"; */
 "wDZ-DN-szv.text" = "start a new wallet by generating a wallet recovery phrase";

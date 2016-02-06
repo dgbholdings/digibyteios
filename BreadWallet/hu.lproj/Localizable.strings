@@ -1,5 +1,5 @@
 /* No comment provided by engineer. */
-"%@ is for 'bits'. %@ = 1 bitcoin." = "A %1$@ 'bit'-et jelent.\n%2$@ = 1 bitcoin.";
+"%@ is for 'bits'. %@ = 1 digibyte." = "A %1$@ 'bit'-et jelent.\n%2$@ = 1 digibyte.";
 
 /* No comment provided by engineer. */
 "%@ is not allowed to access the camera" = "%@ nem tud hozzáférni a kamerához";
@@ -38,16 +38,16 @@
 "\nA device passcode is needed to safeguard your wallet. Go to settings and turn passcode on to continue." = "\nA tárcád biztonságban tartásához egy készülék-jelkód is szükséges. A folytatáshoz ezt kapcsold be a telefonod beállításainál.";
 
 /* No comment provided by engineer. */
-"\nADDRESS ALREADY USED\n\nbitcoin addresses are intended for single use only\n\nre-use reduces privacy for both you and the recipient and can result in loss if the recipient doesn't directly control the address" = "\nMÁR HASZNÁLTAD EZT A CÍMET\n\na bitcoin címek egyszeri használatra szólnak\n\naz ismételt használat mindkét fél tranzakcióinak titkosságát csökkenti, továbbá az oda küldött pénz elvesztését is okozhatja, ha a másik fél nem közvetlenül kontrollálja a címet";
+"\nADDRESS ALREADY USED\n\ndigibyte addresses are intended for single use only\n\nre-use reduces privacy for both you and the recipient and can result in loss if the recipient doesn't directly control the address" = "\nMÁR HASZNÁLTAD EZT A CÍMET\n\na digibyte címek egyszeri használatra szólnak\n\naz ismételt használat mindkét fél tranzakcióinak titkosságát csökkenti, továbbá az oda küldött pénz elvesztését is okozhatja, ha a másik fél nem közvetlenül kontrollálja a címet";
 
 /* No comment provided by engineer. */
 "\nallow camera access in\nSettings->Privacy->Camera->%@" = "\nengedélyezd a kamera használatát a\nBeállítások->Adatvédelem->Kamera->%@ menüpontban";
 
 /* No comment provided by engineer. */
-"\nDO NOT let anyone see your recovery phrase or they can spend your bitcoins.\n\nNEVER type your recovery phrase into password managers or elsewhere. Other devices may be infected.\n" = "\nNE engedd, hogy más lássa a helyreállítási kódmondatodat, különben elköltheti a bitcoinjaidat.\n\nSOHA ne gépeld be a helyreállítási kódmondatodat jelszókezelő alkalmazásokba vagy máshová, hiszen fertőzöttek lehetnek.\n";
+"\nDO NOT let anyone see your recovery phrase or they can spend your digibyte.\n\nNEVER type your recovery phrase into password managers or elsewhere. Other devices may be infected.\n" = "\nNE engedd, hogy más lássa a helyreállítási kódmondatodat, különben elköltheti a digibytejaidat.\n\nSOHA ne gépeld be a helyreállítási kódmondatodat jelszókezelő alkalmazásokba vagy máshová, hiszen fertőzöttek lehetnek.\n";
 
 /* No comment provided by engineer. */
-"\nDO NOT let anyone see your recovery\nphrase or they can spend your bitcoins.\n" = "\nNE engedd, hogy más lássa a helyreállítási\nkódmondatodat, különben elköltheti a\nbitcoinjaidat.";
+"\nDO NOT let anyone see your recovery\nphrase or they can spend your digibyte.\n" = "\nNE engedd, hogy más lássa a helyreállítási\nkódmondatodat, különben elköltheti a\ndigibytejaidat.";
 
 /* No comment provided by engineer. */
 "\nDO NOT take a screenshot.\nScreenshots are visible to other apps\nand devices.\n" = "\nNE csinálj képernyőmentést!\nA képernyőmentések elérhetőek más\nalkalmazások és eszközök számára!\n";
@@ -89,22 +89,22 @@
 "bad signature" = "hibás aláírás";
 
 /* No comment provided by engineer. */
-"Bitcoin address" = "Bitcoin cím";
+"DigiByte address" = "DigiByte cím";
 
 /* No comment provided by engineer. */
-"Bitcoin addresses can also be copied to the clipboard. A bitcoin address always starts with '1' or '3'." = "Bitcoin címeket a vágólapra is lehet másolni. Egy bitcoin cím mindig '1'-gyel vagy '3'-mal kezdődik.";
+"DigiByte addresses can also be copied to the clipboard. A digibyte address always starts with 'D' or '3'." = "DigiByte címeket a vágólapra is lehet másolni. Egy digibyte cím mindig 'D'-gyel vagy '3'-mal kezdődik.";
 
 /* No comment provided by engineer. */
-"bitcoin network fee" = "bitcoin hálózati díj";
+"digibyte network fee" = "digibyte hálózati díj";
 
 /* No comment provided by engineer. */
-"bitcoin payments can't be less than %@" = "a bitcoin fizetés összege nem lehet kevesebb, mint %@";
+"digibyte payments can't be less than %@" = "a digibyte fizetés összege nem lehet kevesebb, mint %@";
 
 /* No comment provided by engineer. */
-"bitcoin transaction not signed" = "a bitcoin tranzakció nincs aláírva";
+"digibyte transaction not signed" = "a digibyte tranzakció nincs aláírva";
 
 /* No comment provided by engineer. */
-"bitcoin transaction outputs can't be less than %@" = "a bitcoin tranzakció kimeneteinek összege nem lehet kisebb, mint %@";
+"digibyte transaction outputs can't be less than %@" = "a digibyte tranzakció kimeneteinek összege nem lehet kisebb, mint %@";
 
 /* No comment provided by engineer. */
 "block #%d of %d" = "%1$d. blokk a %2$d-ból/-ből";
@@ -131,7 +131,7 @@
 "choose passcode for %@" = "válassz jelkódot a következőhöz: %@";
 
 /* No comment provided by engineer. */
-"clipboard doesn't contain a valid bitcoin address" = "a vágólap nem tartalmaz érvényes bitcoin címet";
+"clipboard doesn't contain a valid digibyte address" = "a vágólap nem tartalmaz érvényes digibyte címet";
 
 /* No comment provided by engineer. */
 "close app" = "alkalmazás bezárása";
@@ -170,13 +170,13 @@
 "couldn't sweep balance" = "az egyenleg átvitele nem sikerült";
 
 /* No comment provided by engineer. */
-"couldn't transmit payment to bitcoin network" = "nem sikerült a tranzakciót a bitcoin hálózatra továbbítani";
+"couldn't transmit payment to digibyte network" = "nem sikerült a tranzakciót a digibyte hálózatra továbbítani";
 
 /* No comment provided by engineer. */
-"DEVICE SECURITY COMPROMISED\nAny 'jailbreak' app can access any other app's keychain data (and steal your bitcoins)." = "KÉSZÜLÉK BIZTONSÁGA KOMPROMITTÁLVA\nBármilyen 'jailbreak' alkalmazás hozzáférhet a többi alkalmazás kulcskarikájához (és ellophatja a bitcoinjaidat).";
+"DEVICE SECURITY COMPROMISED\nAny 'jailbreak' app can access any other app's keychain data (and steal your digibyte)." = "KÉSZÜLÉK BIZTONSÁGA KOMPROMITTÁLVA\nBármilyen 'jailbreak' alkalmazás hozzáférhet a többi alkalmazás kulcskarikájához (és ellophatja a digibytejaidat).";
 
 /* No comment provided by engineer. */
-"DEVICE SECURITY COMPROMISED\nAny 'jailbreak' app can access any other app's keychain data (and steal your bitcoins). Wipe this wallet immediately and restore on a secure device." = "KÉSZÜLÉK BIZTONSÁGA KOMPROMITTÁLVA\nBármilyen 'jailbreak' alkalmazás hozzáférhet a többi alkalmazás kulcskarikájához (és ellophatja a bitcoinjaidat). Töröld ezt a tárcát azonnal és állítsd helyre egy biztonságos eszközön.";
+"DEVICE SECURITY COMPROMISED\nAny 'jailbreak' app can access any other app's keychain data (and steal your digibyte). Wipe this wallet immediately and restore on a secure device." = "KÉSZÜLÉK BIZTONSÁGA KOMPROMITTÁLVA\nBármilyen 'jailbreak' alkalmazás hozzáférhet a többi alkalmazás kulcskarikájához (és ellophatja a digibytejaidat). Töröld ezt a tárcát azonnal és állítsd helyre egy biztonságos eszközön.";
 
 /* No comment provided by engineer. */
 "do it later" = "később leírom";
@@ -194,7 +194,7 @@
 "enter old passcode" = "írd be a régi jelkódot";
 
 /* No comment provided by engineer. */
-"error signing bitcoin transaction" = "hiba a bitcoin tranzakció aláírása közben";
+"error signing digibyte transaction" = "hiba a digibyte tranzakció aláírása közben";
 
 /* No comment provided by engineer. */
 "error signing transaction" = "hiba a tranzakció aláírása közben";
@@ -224,13 +224,13 @@
 "insufficient funds" = "fedezethiány";
 
 /* No comment provided by engineer. */
-"insufficient funds for bitcoin network fee" = "fedezethiány a bitcoin hálózati díjra";
+"insufficient funds for digibyte network fee" = "fedezethiány a digibyte hálózati díjra";
 
 /* No comment provided by engineer. */
 "INVALID" = "ÉRVÉNYTELEN";
 
 /* No comment provided by engineer. */
-"Let others scan this QR code to get your bitcoin address. Anyone can send bitcoins to your wallet by transferring them to your address." = "Engedd hogy ezt a QR kódot beolvassa aki bitcoint akar neked küldeni.\nA címedet használva bárki tud bitcoint küldeni a tárcádba.";
+"Let others scan this QR code to get your digibyte address. Anyone can send digibyte to your wallet by transferring them to your address." = "Engedd hogy ezt a QR kódot beolvassa aki digibytet akar neked küldeni.\nA címedet használva bárki tud digibytet küldeni a tárcádba.";
 
 /* No comment provided by engineer. */
 "minute" = "perc";
@@ -257,16 +257,16 @@
 "no peers found" = "nincs elérhető hálózati csomópont";
 
 /* No comment provided by engineer. */
-"not a bitcoin QR code" = "nem bitcoin QR kód";
+"not a digibyte QR code" = "nem digibyte QR kód";
 
 /* No comment provided by engineer. */
-"not a valid bitcoin address" = "nem érvényes bitcoin cím";
+"not a valid digibyte address" = "nem érvényes digibyte cím";
 
 /* No comment provided by engineer. */
 "not a valid private key" = "nem érvényes privát kulcs";
 
 /* No comment provided by engineer. */
-"not connected to the bitcoin network" = "nincs csatlakozva a bitcoin hálózathoz";
+"not connected to the digibyte network" = "nincs csatlakozva a digibyte hálózathoz";
 
 /* No comment provided by engineer. */
 "ok" = "ok";
@@ -299,7 +299,7 @@
 "post-dated" = "későbbre keltezett";
 
 /* No comment provided by engineer. */
-"Receive bitcoins at this address: %@" = "Fogadj bitcoint ezen a címen: %@";
+"Receive digibyte at this address: %@" = "Fogadj digibytet ezen a címen: %@";
 
 /* No comment provided by engineer. */
 "received" = "fogadva";
@@ -344,7 +344,7 @@
 "reset" = "visszaállít";
 
 /* No comment provided by engineer. */
-"Scan someone else's QR code to get their bitcoin address. You can send a payment to anyone with an address." = "Olvasd be valaki másnak a QR kódját, hogy hozzájuss a bitcoin címéhez. Bárkinek küldhetsz pénzt, akinek van ilyen címe.";
+"Scan someone else's QR code to get their digibyte address. You can send a payment to anyone with an address." = "Olvasd be valaki másnak a QR kódját, hogy hozzájuss a digibyte címéhez. Bárkinek küldhetsz pénzt, akinek van ilyen címe.";
 
 /* No comment provided by engineer. */
 "Screenshots are visible to other apps and devices. Generate a new recovery phrase and keep it secret." = "A képernyőmentések láthatóak más alkalmazások és eszközök számára. Generálj egy új helyreállítási kódmondatot és tartsd titokban.";
@@ -356,7 +356,7 @@
 "seen by %d of %d peers" = "látta: %1$d csomópont a(z) %2$d-ból/-ből";
 
 /* No comment provided by engineer. */
-"Send %@ (%@) from this private key into your wallet? The bitcoin network will receive a fee of %@ (%@)." = "Átvezessem a következő egyenleget a privát kulcsról a tárcádba: %1$@ (%2$@)? A bitcoin hálózati díj %3$@ (%4$@) lesz.";
+"Send %@ (%@) from this private key into your wallet? The digibyte network will receive a fee of %@ (%@)." = "Átvezessem a következő egyenleget a privát kulcsról a tárcádba: %1$@ (%2$@)? A digibyte hálózati díj %3$@ (%4$@) lesz.";
 
 /* No comment provided by engineer. */
 "send address as email" = "cím küldése emailben";
@@ -407,10 +407,10 @@
 "the app will now close" = "az alkalmazás most bezárul";
 
 /* No comment provided by engineer. */
-"This is your bitcoin address. Tap to copy it or send it by email or sms. The address will change each time you receive funds, but old addresses always work." = "Ez a bitcoin címed. Koppints rá a másoláshoz vagy továbbküldéshez üzenetként vagy emailként. Ez a cím változni fog minden alkalommal amikor pénzt kapsz, de a régi címeid továbbra is működni fognak.";
+"This is your digibyte address. Tap to copy it or send it by email or sms. The address will change each time you receive funds, but old addresses always work." = "Ez a digibyte címed. Koppints rá a másoláshoz vagy továbbküldéshez üzenetként vagy emailként. Ez a cím változni fog minden alkalommal amikor pénzt kapsz, de a régi címeid továbbra is működni fognak.";
 
 /* No comment provided by engineer. */
-"This is your bitcoin balance. Bitcoin is a currency. The exchange rate changes with the market." = "Ez a bitcoin egyenleged. A Bitcoin egy valuta. Az átváltási árfolyam a piaci körülményeknek megfelelően változik.";
+"This is your digibyte balance. DigiByte is a currency. The exchange rate changes with the market." = "Ez a digibyte egyenleged. A DigiByte egy valuta. Az átváltási árfolyam a piaci körülményeknek megfelelően változik.";
 
 /* No comment provided by engineer. */
 "this payment address is already in your wallet" = "ez a cím eleve a saját tárcádhoz tartozik";
@@ -497,7 +497,7 @@
 "WRITE DOWN YOUR RECOVERY PHRASE" = "ÍRD LE A HELYREÁLLÍTÁSI KÓDMONDATODAT";
 
 /* No comment provided by engineer. */
-"you received bitcoin!" = "bitcoint kaptál!";
+"you received digibyte!" = "digibytet kaptál!";
 
 /* No comment provided by engineer. */
 "Your wallet may be out of sync.\nThis can often be fixed by rescanning the blockchain." = "A tárcád nincs szinkronban.\nÁltalában segít az, ha újraszkenneled a blockchaint.";

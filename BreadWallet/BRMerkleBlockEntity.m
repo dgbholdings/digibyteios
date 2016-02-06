@@ -72,7 +72,7 @@
                 root = (merkleRoot.length == sizeof(UInt256)) ? *(const UInt256 *)merkleRoot.bytes : UINT256_ZERO;
 
         if (uint256_is_zero(hash)) {
-            //abort(); // WTF this shouldn't happen
+            abort(); // WTF this shouldn't happen
         }
         
         block = [[BRMerkleBlock alloc] initWithBlockHash:hash version:self.version prevBlock:prev merkleRoot:root

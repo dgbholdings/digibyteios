@@ -92,7 +92,7 @@
 "digibyte address" = "digibyte-adresse";
 
 /* No comment provided by engineer. */
-"digibyte addresses can also be copied to the clipboard. A digibyte address always starts with '1' or '3'." = "digibyte-adresser kan også kopieres til udklipsholderen. En digibyte-adresse starter altid med \"1\" eller \"3\".";
+"digibyte addresses can also be copied to the clipboard. A digibyte address always starts with 'D' or '3'." = "digibyte-adresser kan også kopieres til udklipsholderen. En digibyte-adresse starter altid med \"D\" eller \"3\".";
 
 /* No comment provided by engineer. */
 "digibyte network fee" = "digibyte-netværksgebyr";

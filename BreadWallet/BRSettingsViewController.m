@@ -113,7 +113,7 @@
 
 - (IBAction)about:(id)sender
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://breadwallet.com"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://digibyte.co"]];
 }
 
 #if DEBUG

@@ -1,5 +1,5 @@
 /* No comment provided by engineer. */
-"%@ is for 'bits'. %@ = 1 bitcoin." = "%1$@ είναι για τα bits. %2$@ = 1 bitcoin.";
+"%@ is for 'bits'. %@ = 1 digibyte." = "%1$@ είναι για τα bits. %2$@ = 1 digibyte.";
 
 /* No comment provided by engineer. */
 "%@ is not allowed to access the camera" = "%@ δεν επιτρέπεται να έχετε πρόσβαση στην κάμερα";
@@ -38,16 +38,16 @@
 "\nA device passcode is needed to safeguard your wallet. Go to settings and turn passcode on to continue." = "\nΈνας κωδικός συσκευής είναι απαραίτητος για τη διαφύλαξη του πορτοφολιού σας. Μεταβείτε στην επιλογή Ρυθμίσεις και ενεργοποιήστε τον κωδικό για να συνεχίσετε.";
 
 /* No comment provided by engineer. */
-"\nADDRESS ALREADY USED\n\nbitcoin addresses are intended for single use only\n\nre-use reduces privacy for both you and the recipient and can result in loss if the recipient doesn't directly control the address" = "\nΗ ΔΙΕΥΘΥΝΣΗ ΧΡΗΣΙΜΟΠΟΙΕΙΤΑΙ ΗΔΗ\n\nΟι διευθύνσεις bitcoin προορίζονται για μια χρήση μόνο\n\nΕπαναχρησιμοποίηση τους μειώνει την προστασία της ιδιωτικής ζωής τόσο της δικής σας όσο και του παραλήπτη και μπορεί να οδηγήσει σε απώλεια, εάν ο παραλήπτης δεν ελέγχει απευθείας τη διεύθυνση";
+"\nADDRESS ALREADY USED\n\ndigibyte addresses are intended for single use only\n\nre-use reduces privacy for both you and the recipient and can result in loss if the recipient doesn't directly control the address" = "\nΗ ΔΙΕΥΘΥΝΣΗ ΧΡΗΣΙΜΟΠΟΙΕΙΤΑΙ ΗΔΗ\n\nΟι διευθύνσεις digibyte προορίζονται για μια χρήση μόνο\n\nΕπαναχρησιμοποίηση τους μειώνει την προστασία της ιδιωτικής ζωής τόσο της δικής σας όσο και του παραλήπτη και μπορεί να οδηγήσει σε απώλεια, εάν ο παραλήπτης δεν ελέγχει απευθείας τη διεύθυνση";
 
 /* No comment provided by engineer. */
 "\nallow camera access in\nSettings->Privacy->Camera->%@" = "\nεπιτρέψτε στην κάμερα πρόσβαση στις\nρυθμίσεις-> απορρήτο-> κάμερα->%@";
 
 /* No comment provided by engineer. */
-"\nDO NOT let anyone see your recovery phrase or they can spend your bitcoins.\n\nNEVER type your recovery phrase into password managers or elsewhere. Other devices may be infected.\n" = "\nΜΗΝ αφήνετε κανέναν να δεί τη φράση ανάκτησης σας αλλιώς μπορούν να ξοδεψουν τα bitcoins σας.\n\nΜΗΝ πληκτρολογείτε ποτέ τη φράση αποκατάστασης σας σε εφαρμογές διαχείρησης κωδικών πρόσβασης ή αλλού. Άλλες συσκευές ενδέχεται να έχουν μολυνθεί.\n";
+"\nDO NOT let anyone see your recovery phrase or they can spend your digibyte.\n\nNEVER type your recovery phrase into password managers or elsewhere. Other devices may be infected.\n" = "\nΜΗΝ αφήνετε κανέναν να δεί τη φράση ανάκτησης σας αλλιώς μπορούν να ξοδεψουν τα digibyte σας.\n\nΜΗΝ πληκτρολογείτε ποτέ τη φράση αποκατάστασης σας σε εφαρμογές διαχείρησης κωδικών πρόσβασης ή αλλού. Άλλες συσκευές ενδέχεται να έχουν μολυνθεί.\n";
 
 /* No comment provided by engineer. */
-"\nDO NOT let anyone see your recovery\nphrase or they can spend your bitcoins.\n" = "\nΜΗΝ αφήσετε κανέναν να δεί την φράση\nανάκτησης σας αλλιώς μπορούν να ξοδεψουν τα bitcoins σας.\n";
+"\nDO NOT let anyone see your recovery\nphrase or they can spend your digibyte.\n" = "\nΜΗΝ αφήσετε κανέναν να δεί την φράση\nανάκτησης σας αλλιώς μπορούν να ξοδεψουν τα digibyte σας.\n";
 
 /* No comment provided by engineer. */
 "\nDO NOT take a screenshot.\nScreenshots are visible to other apps\nand devices.\n" = "\nΜΗΝ πάρτε λήψη της οθόνης. Οι λήψεις οθόνης είναι ορατές σε άλλες εφαρμογές\nκαι συσκευές.\n";
@@ -89,22 +89,22 @@
 "bad signature" = "λάθος υπογραφή";
 
 /* No comment provided by engineer. */
-"Bitcoin address" = "Διεύθυνση Bitcoin";
+"DigiByte address" = "Διεύθυνση DigiByte";
 
 /* No comment provided by engineer. */
-"Bitcoin addresses can also be copied to the clipboard. A bitcoin address always starts with '1' or '3'." = "Οι Διευθύνσεις Bitcoin μπορούν επίσης να αντιγραφούν στο πρόχειρο. Μια διεύθυνση bitcoin ξεκινά πάντα με το '1' ή το '3'.";
+"DigiByte addresses can also be copied to the clipboard. A digibyte address always starts with 'D' or '3'." = "Οι Διευθύνσεις DigiByte μπορούν επίσης να αντιγραφούν στο πρόχειρο. Μια διεύθυνση digibyte ξεκινά πάντα με το 'D' ή το '3'.";
 
 /* No comment provided by engineer. */
-"bitcoin network fee" = "Bitcoin αμοιβή δικτύου";
+"digibyte network fee" = "DigiByte αμοιβή δικτύου";
 
 /* No comment provided by engineer. */
-"bitcoin payments can't be less than %@" = "Οι πληρωμές Bitcoin δεν μπορεί να είναι μικρότερες από %@";
+"digibyte payments can't be less than %@" = "Οι πληρωμές DigiByte δεν μπορεί να είναι μικρότερες από %@";
 
 /* No comment provided by engineer. */
-"bitcoin transaction not signed" = "Η συναλλαγή bitcoin δεν έχει υπογραφεί";
+"digibyte transaction not signed" = "Η συναλλαγή digibyte δεν έχει υπογραφεί";
 
 /* No comment provided by engineer. */
-"bitcoin transaction outputs can't be less than %@" = "Η συναλλαγή εξόδου Bitcoin δεν μπορεί να είναι μικρότερη από %@";
+"digibyte transaction outputs can't be less than %@" = "Η συναλλαγή εξόδου DigiByte δεν μπορεί να είναι μικρότερη από %@";
 
 /* No comment provided by engineer. */
 "block #%d of %d" = "μπλόκ %1$d απο %2$d";
@@ -131,7 +131,7 @@
 "choose passcode for %@" = "επιλέξτε κωδικό πρόσβασης για το %@";
 
 /* No comment provided by engineer. */
-"clipboard doesn't contain a valid bitcoin address" = "Το πρόχειρο δεν περιέχει μία έγκυρη διεύθυνση bitcoin";
+"clipboard doesn't contain a valid digibyte address" = "Το πρόχειρο δεν περιέχει μία έγκυρη διεύθυνση digibyte";
 
 /* No comment provided by engineer. */
 "close app" = "κλείστε την εφαρμογή";
@@ -170,13 +170,13 @@
 "couldn't sweep balance" = "δεν μπορούσα να σαρώσω τα χρήματα";
 
 /* No comment provided by engineer. */
-"couldn't transmit payment to bitcoin network" = "δεν μπορούσα να μεταδώσω την πληρωμή στο δίκτυο bitcoin";
+"couldn't transmit payment to digibyte network" = "δεν μπορούσα να μεταδώσω την πληρωμή στο δίκτυο digibyte";
 
 /* No comment provided by engineer. */
-"DEVICE SECURITY COMPROMISED\nAny 'jailbreak' app can access any other app's keychain data (and steal your bitcoins)." = "Η ΑΣΦΑΛΕΙΑ ΤΗΣ ΣΥΣΚΕΥΗΣ ΕΧΕΙ ΤΕΘΕΙ ΣΕ ΚΙΝΔΥΝΟ\nΟποιαδήποτε 'σπασμένη' εφαρμογή μπορεί να έχει πρόσβαση σε οποιαδήποτε άλλης εφαρμογής τα δεδομένα (και να κλέψει τα bitcoin σας).";
+"DEVICE SECURITY COMPROMISED\nAny 'jailbreak' app can access any other app's keychain data (and steal your digibyte)." = "Η ΑΣΦΑΛΕΙΑ ΤΗΣ ΣΥΣΚΕΥΗΣ ΕΧΕΙ ΤΕΘΕΙ ΣΕ ΚΙΝΔΥΝΟ\nΟποιαδήποτε 'σπασμένη' εφαρμογή μπορεί να έχει πρόσβαση σε οποιαδήποτε άλλης εφαρμογής τα δεδομένα (και να κλέψει τα digibyte σας).";
 
 /* No comment provided by engineer. */
-"DEVICE SECURITY COMPROMISED\nAny 'jailbreak' app can access any other app's keychain data (and steal your bitcoins). Wipe this wallet immediately and restore on a secure device." = "Η ΑΣΦΑΛΕΙΑ ΤΗΣ ΣΥΣΚΕΥΗΣ ΕΧΕΙ ΤΕΘΕΙ ΣΕ ΚΙΝΔΥΝΟ\nΟποιαδήποτε 'σπασμένη' εφαρμογή μπορεί να έχει πρόσβαση σε οποιαδήποτε άλλης εφαρμογής τα δεδομένα (και να κλέψει τα bitcoin σας). Καθαρίστε το πορτοφόλι σας και επαναφέρετε το σε μια ασφαλή συσκευή.";
+"DEVICE SECURITY COMPROMISED\nAny 'jailbreak' app can access any other app's keychain data (and steal your digibyte). Wipe this wallet immediately and restore on a secure device." = "Η ΑΣΦΑΛΕΙΑ ΤΗΣ ΣΥΣΚΕΥΗΣ ΕΧΕΙ ΤΕΘΕΙ ΣΕ ΚΙΝΔΥΝΟ\nΟποιαδήποτε 'σπασμένη' εφαρμογή μπορεί να έχει πρόσβαση σε οποιαδήποτε άλλης εφαρμογής τα δεδομένα (και να κλέψει τα digibyte σας). Καθαρίστε το πορτοφόλι σας και επαναφέρετε το σε μια ασφαλή συσκευή.";
 
 /* No comment provided by engineer. */
 "do it later" = "θα το κάνω αργότερα";
@@ -194,7 +194,7 @@
 "enter old passcode" = "εισάγετε τον παλιό κωδικό πρόσβασης";
 
 /* No comment provided by engineer. */
-"error signing bitcoin transaction" = "σφάλμα υπογραφής συναλλαγής bitcoin";
+"error signing digibyte transaction" = "σφάλμα υπογραφής συναλλαγής digibyte";
 
 /* No comment provided by engineer. */
 "error signing transaction" = "σφάλμα υπογραφής συναλλαγής";
@@ -224,13 +224,13 @@
 "insufficient funds" = "ανεπαρκή χρήματα";
 
 /* No comment provided by engineer. */
-"insufficient funds for bitcoin network fee" = "ανεπαρκή χρηματοδότηση για την αμοιβή του δικτύου bitcoin";
+"insufficient funds for digibyte network fee" = "ανεπαρκή χρηματοδότηση για την αμοιβή του δικτύου digibyte";
 
 /* No comment provided by engineer. */
 "INVALID" = "ΑΚΥΡΟ";
 
 /* No comment provided by engineer. */
-"Let others scan this QR code to get your bitcoin address. Anyone can send bitcoins to your wallet by transferring them to your address." = "Αφήστε τους άλλους να σαρώσουν αυτόν τον κωδικό QR για να πάρουν την διεύθυνση των bitcoin σας. Ο καθένας μπορεί να στείλει bitcoin στο πορτοφόλι σας, μεταφέροντάς τα στη διεύθυνσή σας.";
+"Let others scan this QR code to get your digibyte address. Anyone can send digibyte to your wallet by transferring them to your address." = "Αφήστε τους άλλους να σαρώσουν αυτόν τον κωδικό QR για να πάρουν την διεύθυνση των digibyte σας. Ο καθένας μπορεί να στείλει digibyte στο πορτοφόλι σας, μεταφέροντάς τα στη διεύθυνσή σας.";
 
 /* No comment provided by engineer. */
 "minute" = "λεπτό";
@@ -257,16 +257,16 @@
 "no peers found" = "δε βρέθηκαν κόμβοι";
 
 /* No comment provided by engineer. */
-"not a bitcoin QR code" = "δεν είναι κωδικός QR για bitcoin";
+"not a digibyte QR code" = "δεν είναι κωδικός QR για digibyte";
 
 /* No comment provided by engineer. */
-"not a valid bitcoin address" = "δεν είναι μια έγκυρη διεύθυνση bitcoin";
+"not a valid digibyte address" = "δεν είναι μια έγκυρη διεύθυνση digibyte";
 
 /* No comment provided by engineer. */
 "not a valid private key" = "δεν είναι ενα έγκυρο ιδιωτικό κλειδί";
 
 /* No comment provided by engineer. */
-"not connected to the bitcoin network" = "δεν είστε συνδεδεμένος με το δίκτυο bitcoin";
+"not connected to the digibyte network" = "δεν είστε συνδεδεμένος με το δίκτυο digibyte";
 
 /* No comment provided by engineer. */
 "ok" = "Εντάξει";
@@ -299,7 +299,7 @@
 "post-dated" = "μετα-χρονολογημένη";
 
 /* No comment provided by engineer. */
-"Receive bitcoins at this address: %@" = "Λάβετε bitcoins σε αυτή τη διεύθυνση: %@";
+"Receive digibyte at this address: %@" = "Λάβετε digibyte σε αυτή τη διεύθυνση: %@";
 
 /* No comment provided by engineer. */
 "received" = "ελήφθησαν";
@@ -344,7 +344,7 @@
 "reset" = "επαναφορά";
 
 /* No comment provided by engineer. */
-"Scan someone else's QR code to get their bitcoin address. You can send a payment to anyone with an address." = "Σάρωση του κώδικα QR κάποιου άλλου ατόμου για να πάρετε τη διεύθυνση bitcoin τους. Μπορείτε να στείλετε μια πληρωμή σε οποιοδήποτε με μια διεύθυνση.";
+"Scan someone else's QR code to get their digibyte address. You can send a payment to anyone with an address." = "Σάρωση του κώδικα QR κάποιου άλλου ατόμου για να πάρετε τη διεύθυνση digibyte τους. Μπορείτε να στείλετε μια πληρωμή σε οποιοδήποτε με μια διεύθυνση.";
 
 /* No comment provided by engineer. */
 "Screenshots are visible to other apps and devices. Generate a new recovery phrase and keep it secret." = "Οι λήψεις οθόνης είναι ορατές σε άλλες εφαρμογές και συσκευές. Παράξτε μια νέα φράση ανάκτησης και κρατήστε την μυστική.";
@@ -356,7 +356,7 @@
 "seen by %d of %d peers" = "το έχουν δει %1$d από τους %2$d κόμβους";
 
 /* No comment provided by engineer. */
-"Send %@ (%@) from this private key into your wallet? The bitcoin network will receive a fee of %@ (%@)." = "Στείλτε %1$@ (%2$@) από το ιδιωτικό κλειδί σας στο πορτοφόλι σας? Το δίκτυο bitcoin θα λάβει ένα τέλος %3$@ (%4$@).";
+"Send %@ (%@) from this private key into your wallet? The digibyte network will receive a fee of %@ (%@)." = "Στείλτε %1$@ (%2$@) από το ιδιωτικό κλειδί σας στο πορτοφόλι σας? Το δίκτυο digibyte θα λάβει ένα τέλος %3$@ (%4$@).";
 
 /* No comment provided by engineer. */
 "send address as email" = "αποστολή διεύθυνσης ως email";
@@ -407,10 +407,10 @@
 "the app will now close" = "η εφαρμογή θα κλείσει τώρα";
 
 /* No comment provided by engineer. */
-"This is your bitcoin address. Tap to copy it or send it by email or sms. The address will change each time you receive funds, but old addresses always work." = "Αυτή είναι η διεύθυνση bitcoin σας. Πατήστε για να την αντιγράψετε ή να το στείλετε με email ή sms. Η διεύθυνση θα αλλάξει κάθε φορά που λαμβάνετε χρήματα, αλλά λειτουργούν πάντα οι παλιές διευθύνσεις.";
+"This is your digibyte address. Tap to copy it or send it by email or sms. The address will change each time you receive funds, but old addresses always work." = "Αυτή είναι η διεύθυνση digibyte σας. Πατήστε για να την αντιγράψετε ή να το στείλετε με email ή sms. Η διεύθυνση θα αλλάξει κάθε φορά που λαμβάνετε χρήματα, αλλά λειτουργούν πάντα οι παλιές διευθύνσεις.";
 
 /* No comment provided by engineer. */
-"This is your bitcoin balance. Bitcoin is a currency. The exchange rate changes with the market." = "Αυτό είναι το υπόλοιπό σας σε bitcoin. Το Bitcoin είναι ένα νόμισμα. Οι μεταβολές των συναλλαγματικών ισοτιμιών αλλάζουν με την αγορά.";
+"This is your digibyte balance. DigiByte is a currency. The exchange rate changes with the market." = "Αυτό είναι το υπόλοιπό σας σε digibyte. Το DigiByte είναι ένα νόμισμα. Οι μεταβολές των συναλλαγματικών ισοτιμιών αλλάζουν με την αγορά.";
 
 /* No comment provided by engineer. */
 "this payment address is already in your wallet" = "αυτή η διεύθυνση πληρωμής είναι ήδη στο πορτοφόλι σας";
@@ -497,7 +497,7 @@
 "WRITE DOWN YOUR RECOVERY PHRASE" = "ΓΡΑΨΤΕ ΤΗΝ ΦΡΑΣΗ ΑΝΑΚΤΗΣΗΣ ΣΑΣ";
 
 /* No comment provided by engineer. */
-"you received bitcoin!" = "λάβατε bitcoin!";
+"you received digibyte!" = "λάβατε digibyte!";
 
 /* No comment provided by engineer. */
 "Your wallet may be out of sync.\nThis can often be fixed by rescanning the blockchain." = "Το πορτοφόλι σας μπορεί να είναι εκτός συγχρονισμού. Αυτό μπορεί συχνά να διορθωθεί με την επανεξέταση των μπλόκ συναλλαγών.";

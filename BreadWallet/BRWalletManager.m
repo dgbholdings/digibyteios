@@ -53,7 +53,7 @@
 #define FEE_PER_KB_URL @"https://api.breadwallet.com/v1/fee-per-kb"
 
 #define SEED_ENTROPY_LENGTH   (128/8)
-#define SEC_ATTR_SERVICE      @"org.voisine.breadwallet"
+#define SEC_ATTR_SERVICE      @"co.digibyte.digiwallet"
 #define DEFAULT_CURRENCY_CODE @"USD"
 #define DEFAULT_SPENT_LIMIT   SATOSHIS
 #define DEFAULT_FEE_PER_KB    10000000// default fee-per-kb to match standard fee on 191byte tx
