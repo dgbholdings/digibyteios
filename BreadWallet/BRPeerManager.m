@@ -327,7 +327,6 @@ static const char *dns_seeds[] = {
             }
         }
         
-        
         if (_lastBlock.height > _estimatedBlockHeight) _estimatedBlockHeight = _lastBlock.height;
     }
     
@@ -339,17 +338,12 @@ static const char *dns_seeds[] = {
     return self.lastBlock.height;
 }
 
-// last block height reported by current download peer
-- (uint32_t)estimatedBlockHeight
-{
-    return (self.downloadPeer.lastblock > self.lastBlockHeight) ? self.downloadPeer.lastblock : self.lastBlockHeight;
-}
-
 - (double)syncProgress
 {
-    if (! self.downloadPeer) return (self.syncStartHeight == self.lastBlockHeight) ? 0.05 : 0.0;
-    if (self.lastBlockHeight >= self.downloadPeer.lastblock) return 1.0;
-    return 0.1 + 0.9*(self.lastBlockHeight - self.syncStartHeight)/(self.downloadPeer.lastblock - self.syncStartHeight);
+    if (! self.downloadPeer && self.syncStartHeight == 0) return 0.0;
+    if (self.lastBlockHeight == self.syncStartHeight) return 0.05;
+    if (self.lastBlockHeight >= self.estimatedBlockHeight) return 1.0;
+    return 0.1 + 0.9*(self.lastBlockHeight - self.syncStartHeight)/(self.estimatedBlockHeight - self.syncStartHeight);
 }
 
 // number of connected peers
@@ -412,8 +406,18 @@ static const char *dns_seeds[] = {
         if (self.connectFailures >= MAX_CONNECT_FAILURES) self.connectFailures = 0; // this attempt is a manual retry
     
         if (self.syncProgress < 1.0) {
+
             // Sitt 2016-02-18 Use Checkpoint from the First day of digiwallet fork (from breadWallet)
-            if (self.syncStartHeight == 145000) self.syncStartHeight = self.lastBlockHeight;
+            if (self.syncStartHeight == 145000) {
+                self.syncStartHeight = (uint32_t)[[NSUserDefaults standardUserDefaults]
+                                                  integerForKey:SYNC_STARTHEIGHT_KEY];
+            }
+            
+            // Sitt 2016-02-18 Use Checkpoint from the First day of digiwallet fork (from breadWallet)
+            if (self.syncStartHeight == 145000) {
+                self.syncStartHeight = self.lastBlockHeight;
+                [[NSUserDefaults standardUserDefaults] setInteger:self.syncStartHeight forKey:SYNC_STARTHEIGHT_KEY];
+            }
 
             if (self.taskId == UIBackgroundTaskInvalid) { // start a background task for the chain sync
                 self.taskId =
@@ -494,6 +498,7 @@ static const char *dns_seeds[] = {
         }
 
         self.syncStartHeight = self.lastBlockHeight;
+        [[NSUserDefaults standardUserDefaults] setInteger:self.syncStartHeight forKey:SYNC_STARTHEIGHT_KEY];
         [self connect];
     });
 }
@@ -651,8 +656,6 @@ static const char *dns_seeds[] = {
 
 - (void)syncStopped
 {
-    self.syncStartHeight = 0;
-    
     dispatch_async(dispatch_get_main_queue(), ^{
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(syncTimeout) object:nil];
 
@@ -695,7 +698,7 @@ static const char *dns_seeds[] = {
             }
             else if (p == self.downloadPeer) {
                 [self syncStopped];
-                
+
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [[NSNotificationCenter defaultCenter]
                      postNotificationName:BRPeerManagerSyncFinishedNotification object:nil];
@@ -778,10 +781,10 @@ static const char *dns_seeds[] = {
     
     [self.downloadPeer sendPingMessageWithPongHandler:^(BOOL success) { // wait for pong so we include already sent tx
         if (! success) return;
-        if (! _bloomFilter) NSLog(@"updating filter with newly created wallet addresses");
+        NSLog(@"updating filter with newly created wallet addresses");
         _bloomFilter = nil;
 
-        if (self.lastBlockHeight < self.downloadPeer.lastblock) { // if we're syncing, only update download peer
+        if (self.lastBlockHeight < self.estimatedBlockHeight) { // if we're syncing, only update download peer
             [self.downloadPeer sendFilterloadMessage:self.bloomFilter.data];
             [self.downloadPeer sendPingMessageWithPongHandler:^(BOOL success) { // wait for pong so filter is loaded
                 if (! success) return;
@@ -925,8 +928,8 @@ static const char *dns_seeds[] = {
         }
     }
 
-    if (self.connected && (self.downloadPeer.lastblock >= peer.lastblock || self.lastBlockHeight >= peer.lastblock)) {
-        if (self.lastBlockHeight < self.downloadPeer.lastblock) return; // don't load bloom filter yet if we're syncing
+    if (self.connected && (self.estimatedBlockHeight >= peer.lastblock || self.lastBlockHeight >= peer.lastblock)) {
+        if (self.lastBlockHeight < self.estimatedBlockHeight) return; // don't load bloom filter yet if we're syncing
         [peer sendFilterloadMessage:self.bloomFilter.data];
         [peer sendInvMessageWithTxHashes:self.publishedTx.allKeys]; // publish unconfirmed tx
         [peer sendPingMessageWithPongHandler:^(BOOL success) {
@@ -952,6 +955,7 @@ static const char *dns_seeds[] = {
     [self.downloadPeer disconnect];
     self.downloadPeer = peer;
     _connected = YES;
+    _estimatedBlockHeight = peer.lastblock;
     _bloomFilter = nil; // make sure the bloom filter is updated with any newly generated addresses
     [peer sendFilterloadMessage:self.bloomFilter.data];
     peer.currentBlockHeight = self.lastBlockHeight;
@@ -1046,7 +1050,7 @@ static const char *dns_seeds[] = {
 {
     BRWalletManager *manager = [BRWalletManager sharedInstance];
     NSValue *hash = uint256_obj(transaction.txHash);
-    BOOL syncing = (self.lastBlockHeight < self.downloadPeer.lastblock);
+    BOOL syncing = (self.lastBlockHeight < self.estimatedBlockHeight);
     void (^callback)(NSError *error) = self.publishedCallback[hash];
 
     NSLog(@"%@:%d relayed transaction %@", peer.host, peer.port, hash);
@@ -1102,7 +1106,7 @@ static const char *dns_seeds[] = {
 {
     BRWalletManager *manager = [BRWalletManager sharedInstance];
     NSValue *hash = uint256_obj(txHash);
-    BOOL syncing = (self.lastBlockHeight < self.downloadPeer.lastblock);
+    BOOL syncing = (self.lastBlockHeight < self.estimatedBlockHeight);
     BRTransaction *tx = self.publishedTx[hash];
     void (^callback)(NSError *error) = self.publishedCallback[hash];
     
@@ -1353,6 +1357,8 @@ static const char *dns_seeds[] = {
     }
     
     if (block.height == peer.lastblock && block == self.lastBlock) { // chain download is complete
+        self.syncStartHeight = 0;
+        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:SYNC_STARTHEIGHT_KEY];
         [self saveBlocks];
         [self loadMempools];
     }
@@ -1365,6 +1371,8 @@ static const char *dns_seeds[] = {
         [self peer:peer relayedBlock:b];
     }
 
+    if (block.height > _estimatedBlockHeight) _estimatedBlockHeight = block.height;
+    
     if (block.height > peer.lastblock) { // notify that transaction confirmations may have changed
         dispatch_async(dispatch_get_main_queue(), ^{
             [[NSNotificationCenter defaultCenter] postNotificationName:BRPeerManagerTxStatusNotification object:nil];
