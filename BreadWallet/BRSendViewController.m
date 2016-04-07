@@ -337,7 +337,9 @@ memo:(NSString *)memo isSecure:(BOOL)isSecure
     }
 
     //TODO: check for duplicates of already paid requests
-
+    NSLog(@"Minimum Transaction Output Amount: %d", TX_MIN_OUTPUT_AMOUNT);
+    //NSLog(@"Output Amount: %llu and the Minimum Transaction Output amount: %f", outputAmount.unsignedLongLongValue, TX_MIN_OUTPUT_AMOUNT);
+    
     if (self.amount == 0) {
         for (NSNumber *outputAmount in protoReq.details.outputAmounts) {
             if (outputAmount.unsignedLongLongValue > 0 && outputAmount.unsignedLongLongValue < TX_MIN_OUTPUT_AMOUNT) {
@@ -347,7 +349,9 @@ memo:(NSString *)memo isSecure:(BOOL)isSecure
         }
     }
     else amount = self.amount;
-
+    
+    NSLog(@"Step 1; Output Amount: %llu and the Minimum Transaction Output amount: %d", amount, TX_MIN_OUTPUT_AMOUNT);
+    
     if ([manager.wallet containsAddress:address]) {
         [[[UIAlertView alloc] initWithTitle:@""
           message:NSLocalizedString(@"this payment address is already in your wallet", nil)
@@ -484,7 +488,7 @@ memo:(NSString *)memo isSecure:(BOOL)isSecure
                         cpfpSize += tx.size; // only non-change inputs count
                     }
                 }
-                
+
                 int64_t amount = (manager.wallet.balance/100)*100 -
                                  [manager.wallet feeForTxSize:txSize + 34 + cpfpSize];
             
@@ -859,7 +863,7 @@ memo:(NSString *)memo isSecure:(BOOL)isSecure
     self.tipView = [BRBubbleView viewWithText:SCAN_TIP
                     tipPoint:CGPointMake(self.scanButton.center.x, self.scanButton.center.y - 10.0)
                     tipDirection:BRBubbleTipDirectionDown];
-    self.tipView.backgroundColor = [UIColor orangeColor];
+    self.tipView.backgroundColor = [UIColor blueColor];
     self.tipView.font = [UIFont fontWithName:@"HelveticaNeue" size:15.0];
     [self.view addSubview:[self.tipView popIn]];
 }

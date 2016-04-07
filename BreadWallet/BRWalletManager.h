@@ -29,10 +29,11 @@
 
 #define SATOSHIS     100000000
 #define MAX_MONEY    (21000000LL*SATOSHIS)
-#define BTC          @"\xC9\x97"     // capital B with stroke (utf-8)
-#define DGB          @"\xC9\x97"     // DigiByte's Capital 'D' (utf-8)
+//#define BTC          @"\xC9\x83"     // capital B with stroke (utf-8)
+#define DGB          @"\xC3\x90"     // DigiByte's Capital 'D' (utf-8)
+
 //#define BITS         @"\xC6\x80"     // lowercase d with stroke (utf-8)
-#define DGBITS       @"\xC3\x87"     // lowercase d with stroke (utf-8)
+#define DGBITS       @"\xC9\x97"     // lowercase d with stroke (utf-8)
 #define NARROW_NBSP  @"\xE2\x80\xAF" // narrow no-break space (utf-8)
 #define LDQUOTE      @"\xE2\x80\x9C" // left double quote (utf-8)
 #define RDQUOTE      @"\xE2\x80\x9D" // right double quote (utf-8)
@@ -45,6 +46,9 @@
 @protocol BRMnemonic;
 
 @interface BRWalletManager : NSObject<UIAlertViewDelegate, UITextFieldDelegate, UITextViewDelegate>
+
+// Sitt 2016-02-22 Added for new behavior expected in new Wallets.
+@property(nonatomic, assign) BOOL *isNewWallet;
 
 @property (nonatomic, readonly) BRWallet *wallet;
 @property (nonatomic, readonly) BOOL noWallet; // true if keychain is available and we know that no wallet exists on it

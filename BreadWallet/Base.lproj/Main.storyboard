@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BeO-Yt-c4D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BeO-Yt-c4D">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -443,7 +443,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallpaper-default" translatesAutoresizingMaskIntoConstraints="NO" id="8tO-ay-0Bj">
-                                <rect key="frame" x="0.0" y="-69" width="517" height="736"/>
+                                <rect key="frame" x="0.0" y="99" width="480" height="568"/>
                             </imageView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RLt-8v-uP1" userLabel="Error Bar">
                                 <rect key="frame" x="0.0" y="25" width="375" height="26"/>
@@ -708,7 +708,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallpaper-default" translatesAutoresizingMaskIntoConstraints="NO" id="ihm-bL-FFP">
-                                <rect key="frame" x="-71" y="-69" width="517" height="736"/>
+                                <rect key="frame" x="-53" y="99" width="481" height="568"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.67000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="($0.00)" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZH0-Ng-7xb">
                                 <rect key="frame" x="212" y="89" width="52" height="20"/>
@@ -1489,11 +1489,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1xc-b5-vde" userLabel="paralax">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1xc-b5-vde" userLabel="paralax">
+                                <rect key="frame" x="0.0" y="64" width="375" height="596"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="launch-screen-R4" translatesAutoresizingMaskIntoConstraints="NO" id="pb2-E7-2ep">
-                                        <rect key="frame" x="0.0" y="-69" width="964" height="736"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="wallpaper-welcome" translatesAutoresizingMaskIntoConstraints="NO" id="pb2-E7-2ep">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="596"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </imageView>
                                 </subviews>
@@ -1519,6 +1519,7 @@
                                 <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                                 <size key="titleShadowOffset" width="0.0" height="1"/>
                                 <state key="normal" title="new wallet" backgroundImage="button-bg-white">
+                                    <color key="titleColor" white="0.79542025859999999" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.0" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="disabled" backgroundImage="button-bg-disabled"/>
@@ -1539,6 +1540,7 @@
                                 <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                                 <size key="titleShadowOffset" width="0.0" height="1"/>
                                 <state key="normal" title="recover wallet" backgroundImage="button-bg-white">
+                                    <color key="titleColor" white="0.79542025862068966" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.0" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="disabled" backgroundImage="button-bg-disabled"/>
@@ -1591,7 +1593,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTO-3U-AsH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1014" y="2160"/>
+            <point key="canvasLocation" x="1020.5" y="2159.5"/>
         </scene>
         <!--confirm:-->
         <scene sceneID="2Hc-ez-bvO">
@@ -2198,11 +2200,11 @@
                                             <constraint firstAttribute="height" constant="0.5" id="yy7-el-RW3"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" clipsSubviews="YES" tag="411" contentMode="left" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="uvz-hk-Nr4">
-                                        <rect key="frame" x="71" y="20" width="233" height="81"/>
+                                    <label opaque="NO" clipsSubviews="YES" tag="411" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="uvz-hk-Nr4">
+                                        <rect key="frame" x="39" y="20" width="297" height="81"/>
                                         <gestureRecognizers/>
-                                        <string key="text">digiwallet v%ver%%net%
-copyright © 2015 DigiByte LLC
+                                        <string key="text">DigiWallet v%ver%%net%
+copyright © 2015 DigiByte Holdings Ltd.
 
 this app is open source</string>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
@@ -2662,9 +2664,9 @@ Other devices may be infected.
         </scene>
     </scenes>
     <resources>
-        <image name="breadwallet" width="93" height="15"/>
+        <image name="breadwallet" width="58" height="15"/>
         <image name="breadwallet-1" width="116" height="30"/>
-        <image name="breadwallet-white" width="97" height="18"/>
+        <image name="breadwallet-white" width="58" height="15"/>
         <image name="burger" width="20" height="16"/>
         <image name="button-bg-blue" width="10" height="11"/>
         <image name="button-bg-blue-pressed" width="10" height="44"/>
@@ -2681,8 +2683,9 @@ Other devices may be infected.
         <image name="launch-screen-R4" width="640" height="1136"/>
         <image name="lock" width="12" height="16"/>
         <image name="refresh" width="9" height="11"/>
-        <image name="wallpaper-default" width="517" height="736"/>
+        <image name="wallpaper-default" width="480" height="568"/>
         <image name="wallpaper-default-1" width="960" height="1136"/>
+        <image name="wallpaper-welcome" width="964" height="736"/>
         <image name="x" width="20" height="16"/>
     </resources>
 </document>

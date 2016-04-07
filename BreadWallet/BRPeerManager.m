@@ -55,6 +55,7 @@
 // Sitt 2015-11-09 #define GENESIS_BLOCK_HASH   (*(UInt256 *)@(checkpoint_array[0].hash).hexToData.reverse.bytes)
 //#define GENESIS_BLOCK_HASH  (*(UInt256 *)@(checkpoint_array[0].hash).hexToData.reverse.bytes)
 #define GENESIS_BLOCK_HASH  (*(UInt256 *) @"7497ea1b465eb39f1c8f507bc877078fe016d6fcb6dfad3a64c98dcc6e1e8496".hexToData.reverse.bytes)
+#define SYNC_STARTHEIGHT_KEY @"SYNC_STARTHEIGHT"
 
 // blockchain checkpoints - these are also used as starting points for partial chain downloads, so they need to be at
 // difficulty transition boundaries in order to verify the block difficulty at the immediately following transition
@@ -63,7 +64,11 @@ static const struct { uint32_t height; char *hash; uint32_t timestamp; uint32_t 
 //    {  50000, "e77a35893a5611c4154cc71f7a7f949e074143e66b05cac2bd8c1db1c752c2f8", 1392476904, 0x1c0dca73 },
 //    { 384000, "0000000000000705b6b53f92625170e87d22a45df88797837ff1212ea8682f72", 1417688374, 0x1a0ab197 },
 //    { 521000, "d23fd1e1f994c0586d761b71bb3530e9ab45bd0fabda3a5a2e394f3dc4d9bb04", 1416891634, 0x1b336ce6},
-    { 1666000, "afcf9dda89a05be10bb00800eb3a8aa6905a6a36f2c3a8914d3b984bbaeba0e3", 1452769989, 0x1b5145d7}
+//    { 1666000, "afcf9dda89a05be10bb00800eb3a8aa6905a6a36f2c3a8914d3b984bbaeba0e3", 1452769989, 0x1b5145d7},
+    // Sitt 2016-02-18 Use Checkpoint from the First day of digiwallet fork (from breadWallet)
+    {  145000, "f8d650dda836d5e3809b928b8523f050891c3bb9fa2c201bb04824a8a2fe7df6", 1409596362, 0x1c01f271},
+    { 1800000, "72f46e1fff56518dce7e540b407260ea827cb1c4652f24eb1d1917f54b95d65a", 1454769372, 0x1c021355},
+    { 2149922, "557846763a5f1eb3205d175724bd26ba7123c17c49eaaadf20b67c7e20e3118a", 1460001303, 0x1c012a26}
 };
 
 /* Sitt 2015-11-09
@@ -73,7 +78,7 @@ static const char *dns_seeds[] = {
 };*/
 static const char *dns_seeds[] = {
 //    "seed1.digibyte.co", "seed2.hashdragon.com", "dgb.cryptoservices.net"
-    "216.250.125.121", "69.164.198.161", "163.172.13.124"// Testnet
+    "216.250.125.121", "69.164.198.161", "163.172.13.124"
 };
 
 
@@ -124,6 +129,10 @@ static const char *dns_seeds[] = {
     self.txRequests = [NSMutableDictionary dictionary];
     self.publishedTx = [NSMutableDictionary dictionary];
     self.publishedCallback = [NSMutableDictionary dictionary];
+    
+    // Sitt 2016-02-18 Use Checkpoint from the First day of digiwallet fork (from breadWallet)
+    if ([BRWalletManager sharedInstance].isNewWallet == false) self.syncStartHeight = 2149922;
+    else self.syncStartHeight = 145000;
 
     self.backgroundObserver =
         [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidEnterBackgroundNotification object:nil
@@ -141,7 +150,7 @@ static const char *dns_seeds[] = {
         [[NSNotificationCenter defaultCenter] addObserverForName:BRWalletManagerSeedChangedNotification object:nil
         queue:nil usingBlock:^(NSNotification *note) {
             self.earliestKeyTime = [BRWalletManager sharedInstance].seedCreationTime;
-            self.syncStartHeight = 0;
+            [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:SYNC_STARTHEIGHT_KEY];
             [self.txRelays removeAllObjects];
             [self.publishedTx removeAllObjects];
             [self.publishedCallback removeAllObjects];
@@ -249,29 +258,31 @@ static const char *dns_seeds[] = {
 - (NSMutableDictionary *)blocks
 {
     if (_blocks.count > 0) return _blocks;
-
+    
     [[BRMerkleBlockEntity context] performBlockAndWait:^{
         if (_blocks.count > 0) return;
         _blocks = [NSMutableDictionary dictionary];
         self.checkpoints = [NSMutableDictionary dictionary];
-
-        for (int i = 0; i < CHECKPOINT_COUNT; i++) { // add checkpoints to the block collection
+        
+        for (int i = ([BRWalletManager sharedInstance].isNewWallet == false)? 0 : CHECKPOINT_COUNT-1; i < CHECKPOINT_COUNT; i++) { // add checkpoints to the block collection
             UInt256 hash = *(UInt256 *)@(checkpoint_array[i].hash).hexToData.reverse.bytes;
-
+            
             _blocks[uint256_obj(hash)] = [[BRMerkleBlock alloc] initWithBlockHash:hash version:1 prevBlock:UINT256_ZERO
-                                          merkleRoot:UINT256_ZERO timestamp:checkpoint_array[i].timestamp
-                                          target:checkpoint_array[i].target nonce:0 totalTransactions:0 hashes:nil
-                                          flags:nil height:checkpoint_array[i].height];
+                                                                       merkleRoot:UINT256_ZERO timestamp:checkpoint_array[i].timestamp
+                                                                           target:checkpoint_array[i].target nonce:0 totalTransactions:0 hashes:nil
+                                                                            flags:nil height:checkpoint_array[i].height];
             self.checkpoints[@(checkpoint_array[i].height)] = uint256_obj(hash);
         }
-
+        
         for (BRMerkleBlockEntity *e in [BRMerkleBlockEntity allObjects]) {
-            BRMerkleBlock *b = e.merkleBlock;
-
-            if (b) _blocks[uint256_obj(b.blockHash)] = b;
+            @autoreleasepool {
+                BRMerkleBlock *b = e.merkleBlock;
+                
+                if (b) _blocks[uint256_obj(b.blockHash)] = b;
+            }
         };
     }];
-
+    
     return _blocks;
 }
 
@@ -301,7 +312,7 @@ static const char *dns_seeds[] = {
 {
     if (! _lastBlock) {
         NSFetchRequest *req = [BRMerkleBlockEntity fetchRequest];
-
+        
         req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"height" ascending:NO]];
         req.predicate = [NSPredicate predicateWithFormat:@"height >= 0 && height != %d", BLOCK_UNKNOWN_HEIGHT];
         req.fetchLimit = 1;
@@ -310,13 +321,16 @@ static const char *dns_seeds[] = {
         // if we don't have any blocks yet, use the latest checkpoint that's at least a week older than earliestKeyTime
         for (int i = CHECKPOINT_COUNT - 1; ! _lastBlock && i >= 0; i--) {
             if (i == 0 || checkpoint_array[i].timestamp + 7*24*60*60 < self.earliestKeyTime + NSTimeIntervalSince1970) {
-                _lastBlock = [[BRMerkleBlock alloc]
-                              initWithBlockHash:*(UInt256 *)@(checkpoint_array[i].hash).hexToData.reverse.bytes
-                              version:1 prevBlock:UINT256_ZERO merkleRoot:UINT256_ZERO
-                              timestamp:checkpoint_array[i].timestamp target:checkpoint_array[i].target nonce:0
-                              totalTransactions:0 hashes:nil flags:nil height:checkpoint_array[i].height];
+                UInt256 hash = *(UInt256 *)@(checkpoint_array[i].hash).hexToData.reverse.bytes;
+                
+                _lastBlock = [[BRMerkleBlock alloc] initWithBlockHash:hash version:1 prevBlock:UINT256_ZERO
+                                                           merkleRoot:UINT256_ZERO timestamp:checkpoint_array[i].timestamp
+                                                               target:checkpoint_array[i].target nonce:0 totalTransactions:0 hashes:nil flags:nil
+                                                               height:checkpoint_array[i].height];
             }
         }
+        
+        if (_lastBlock.height > _estimatedBlockHeight) _estimatedBlockHeight = _lastBlock.height;
     }
     
     return _lastBlock;
@@ -400,7 +414,8 @@ static const char *dns_seeds[] = {
         if (self.connectFailures >= MAX_CONNECT_FAILURES) self.connectFailures = 0; // this attempt is a manual retry
     
         if (self.syncProgress < 1.0) {
-            if (self.syncStartHeight == 0) self.syncStartHeight = self.lastBlockHeight;
+            // Sitt 2016-02-18 Use Checkpoint from the First day of digiwallet fork (from breadWallet)
+            if (self.syncStartHeight == 145000) self.syncStartHeight = self.lastBlockHeight;
 
             if (self.taskId == UIBackgroundTaskInvalid) { // start a background task for the chain sync
                 self.taskId =
@@ -670,7 +685,9 @@ static const char *dns_seeds[] = {
         }
     }
 
-    self.syncStartHeight = 0;
+    // Sitt 2016-02-18 Use Checkpoint from the First day of digiwallet fork (from breadWallet)
+    if ([BRWalletManager sharedInstance].isNewWallet == false) self.syncStartHeight = 2149922;
+    else self.syncStartHeight = 145000;
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(syncTimeout) object:nil];
@@ -1234,9 +1251,9 @@ static const char *dns_seeds[] = {
               block.target, blockHash);
         [self peerMisbehavin:peer];
         return;
-    }
+    }*/
 
-    [self.checkpoints[@(block.height)] getValue:&checkpoint];*/
+    [self.checkpoints[@(block.height)] getValue:&checkpoint];
     
     // verify block chain checkpoints
     if (! uint256_is_zero(checkpoint) && ! uint256_eq(block.blockHash, checkpoint)) {

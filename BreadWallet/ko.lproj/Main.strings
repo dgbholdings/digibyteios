@@ -77,7 +77,7 @@
 "t1j-JZ-FW0.text" = "거래 없음";
 
 /* Class = "UILabel"; text = "digiwallet v%ver%%net%\ncopyright © 2015 DigiByte LLC\n\nthis app is open source"; ObjectID = "uvz-hk-Nr4"; */
-"uvz-hk-Nr4.text" = "digiwallet v%ver%%net%\ncopyright © 2015 DigiByte LLC\n\n이 앱은 오픈 소스입니다";
+"uvz-hk-Nr4.text" = "DigiWallet v%ver%%net%\ncopyright © 2015 DigiByte Holdings Ltd.\n\n이 앱은 오픈 소스입니다";
 
 /* Class = "UILabel"; text = "start a new wallet by generating a wallet recovery phrase"; ObjectID = "wDZ-DN-szv"; */
 "wDZ-DN-szv.text" = "복원 문구를 생성해서 새로운 지갑 시작하기";

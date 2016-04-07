@@ -47,7 +47,8 @@
 // Sitt 2015-11-25 #define UNSPENT_URL    @"https://api.blockcypher.com/v1/btc/%@/addrs/%@?unspentOnly=1&includeScript=1&limit=200"
 #define UNSPENT_URL    BASE_URL "/api/addr/%@/utxo"
 // Sitt 2015-11-25 #define TICKER_URL     @"https://bitpay.com/rates"
-#define TICKER_URL     @"http://digiticker.info/rates"
+//#define TICKER_URL     @"http://digiticker.info/rates"
+#define TICKER_URL    @"http://digistats.info/api/stats"
 #define POLONIEX_TICKER_URL  @"https://poloniex.com/public?command=returnOrderBook&currencyPair=BTC_DGB&depth=1"
 
 #define FEE_PER_KB_URL @"https://api.breadwallet.com/v1/fee-per-kb"
@@ -79,6 +80,8 @@
 #define PIN_FAIL_HEIGHT_KEY @"pinfailheight"
 #define AUTH_PRIVKEY_KEY    @"authprivkey"
 #define SEED_KEY            @"seed" // depreceated
+
+*isNewWallet = NO;
 
 static BOOL setKeychainData(NSData *data, NSString *key, BOOL authenticated)
 {
@@ -882,19 +885,24 @@ static NSString *getKeychainString(NSString *key, NSError **error)
         //          [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
         //    return;
         //}
-        
-        for (NSDictionary *d in json) {
-            //if (! [d isKindOfClass:[NSDictionary class]] || ! [d[@"code"] isKindOfClass:[NSString class]] ||
-            //    ! [d[@"name"] isKindOfClass:[NSString class]] || ! [d[@"rate"] isKindOfClass:[NSNumber class]]) {
-            //    NSLog(@"unexpected response from %@:\n%@", req.URL.host, d,
-            //          [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-            //    return;
-            //}
-           
-            //if ([d[@"code"] isEqual:@"BTC"]) continue;
-            [codes addObject:d[@"code"]];
-            [names addObject:d[@"name"]];
-            [rates addObject:d[@"rate"]];
+        for (NSDictionary *fiat in json) {
+            for (NSDictionary *d in fiat[@"fiatrates"]) {
+                //if (! [d isKindOfClass:[NSDictionary class]] || ! [d[@"code"] isKindOfClass:[NSString class]] ||
+                //    ! [d[@"name"] isKindOfClass:[NSString class]] || ! [d[@"rate"] isKindOfClass:[NSNumber class]]) {
+                //    NSLog(@"unexpected response from %@:\n%@", req.URL.host, d,
+                //          [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+                //    return;
+                //}
+                
+                //if ([d[@"code"] isEqual:@"BTC"]) continue;
+                [codes addObject: d[@"code"]];
+                [names addObject: d[@"name"]];
+                [rates addObject: d[@"rate"]];
+            }
+            
+//            for (NSDictionary *p in fiat[@"poloniexorders"]) {
+//
+//            }
         }
 
         _currencyCodes = codes;
@@ -1292,5 +1300,4 @@ replacementString:(NSString *)string
         [t becomeFirstResponder];
     }
 }
-
 @end

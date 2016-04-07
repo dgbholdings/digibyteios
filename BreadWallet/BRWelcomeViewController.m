@@ -121,15 +121,15 @@
         
         if (! self.hasAppeared) {
             self.hasAppeared = YES;
-            self.paralaxXLeft = [NSLayoutConstraint constraintWithItem:self.navigationController.view
-                                 attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.paralax
-                                 attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0];
-            [self.navigationController.view insertSubview:self.paralax atIndex:0];
-            [self.navigationController.view addConstraint:self.paralaxXLeft];
-            [self.navigationController.view
-             addConstraint:[NSLayoutConstraint constraintWithItem:self.navigationController.view
-                            attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.paralax
-                            attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0]];
+//            self.paralaxXLeft = [NSLayoutConstraint constraintWithItem:self.navigationController.view
+//                                 attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.paralax
+//                                 attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0];
+//            [self.navigationController.view insertSubview:self.paralax atIndex:0];
+//            [self.navigationController.view addConstraint:self.paralaxXLeft];
+//            [self.navigationController.view
+//             addConstraint:[NSLayoutConstraint constraintWithItem:self.navigationController.view
+//                            attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.paralax
+//                            attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0]];
 //            self.navigationController.view.backgroundColor = self.paralax.backgroundColor;
             self.navigationController.view.clipsToBounds = YES;
             self.navigationController.view.backgroundColor = [UIColor blackColor];
@@ -141,12 +141,12 @@
             self.navigationItem.titleView.hidden = NO;
             self.navigationItem.titleView.alpha = 0.0;
 
-            [UIView animateWithDuration:0.35 delay:1.0 usingSpringWithDamping:0.8 initialSpringVelocity:0.0
-            options:UIViewAnimationOptionCurveEaseOut animations:^{
-                [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
-                self.navigationItem.titleView.alpha = 1.0;
-                [self.navigationController.view layoutIfNeeded];
-            } completion:nil];
+//            [UIView animateWithDuration:0.35 delay:1.0 usingSpringWithDamping:0.8 initialSpringVelocity:0.0
+//            options:UIViewAnimationOptionCurveEaseOut animations:^{
+//               [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+//                self.navigationItem.titleView.alpha = 1.0;
+//                [self.navigationController.view layoutIfNeeded];
+//            } completion:nil];
         }
         
         [self animateWallpaper];
@@ -212,7 +212,7 @@
     [s replaceCharactersInRange:[s.string rangeOfString:@"\nDO NOT let anyone see your recovery\n"
                                  "phrase or they can spend your digibyte.\n"]
      withString:NSLocalizedString(@"\nDO NOT let anyone see your recovery\n"
-                                  "phrase or they can spend your digibyte.\n", nil)];
+                                  "phrase or they can spend your DigiByte.\n", nil)];
     [s replaceCharactersInRange:[s.string rangeOfString:@"\nNEVER type your recovery phrase into\n"
                                  "password managers or elsewhere.\nOther devices may be infected.\n"]
      withString:NSLocalizedString(@"\nNEVER type your recovery phrase into\npassword managers or elsewhere.\n"
@@ -226,7 +226,7 @@
 - (IBAction)recover:(id)sender
 {
     [BREventManager saveEvent:@"welcome:recover_wallet"];
-
+    [BRWalletManager sharedInstance].isNewWallet = NO;
     UIViewController *c = [self.storyboard instantiateViewControllerWithIdentifier:@"RecoverViewController"];
 
     [self.navigationController pushViewController:c animated:YES];
@@ -235,6 +235,7 @@
 - (IBAction)generate:(id)sender
 {
     [BREventManager saveEvent:@"welcome:generate"];
+    [BRWalletManager sharedInstance].isNewWallet = YES;
     
     if (! [BRWalletManager sharedInstance].passcodeEnabled) {
         [BREventManager saveEvent:@"welcome:passcode_disabled"];

@@ -230,7 +230,7 @@
     self.tipView = [BRBubbleView viewWithText:QR_TIP
                     tipPoint:[self.qrView.superview convertPoint:self.qrView.center toView:self.view]
                     tipDirection:BRBubbleTipDirectionUp];
-    self.tipView.backgroundColor = [UIColor orangeColor];
+    self.tipView.backgroundColor = [UIColor blueColor];
     self.tipView.font = [UIFont fontWithName:@"HelveticaNeue" size:15.0];
     [self.view addSubview:[self.tipView popIn]];
 }

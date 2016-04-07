@@ -27,5 +27,4 @@
 
 @interface BRWelcomeViewController : UIViewController <UINavigationControllerDelegate,
 UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning>
-
 @end

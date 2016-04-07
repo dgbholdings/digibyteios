@@ -24,23 +24,6 @@
 //  THE SOFTWARE.
 
 
-
-/** First Batch
- * 104.237.137.28:12024 relayed orphan block <5d570253 eb7d7e23 c6d9737d 1d4ffeed 32d6114c 8403ed12 966a93f0 70fe8930>, previous <1dd1a12d 4187bf92 454797a8 c02971e4 584331c5 e69a2ed2 c3902307 530a951c>, last block is <e2d03582 76dcfdff 72ce027d 75b0b7d3 b8c6ea3d c3e17ba7 0a000000 00000000>, height 262080
- * 104.237.137.28:12024 relayed orphan block <29984031 74578bdd e9e90ef5 7ee85146 a226aae6 e8146455 ed3c6395 5ccb7a22>, previous <5d570253 eb7d7e23 c6d9737d 1d4ffeed 32d6114c 8403ed12 966a93f0 70fe8930>, last block is <e2d03582 76dcfdff 72ce027d 75b0b7d3 b8c6ea3d c3e17ba7 0a000000 00000000>, height 262080
- * 104.237.137.28:12024 relayed orphan block <6d0ba1ca 73d463fa d10546a3 bd66bca4 63f51b46 a9d112ff 276f63d6 24590989>, previous <29984031 74578bdd e9e90ef5 7ee85146 a226aae6 e8146455 ed3c6395 5ccb7a22>, last block is <e2d03582 76dcfdff 72ce027d 75b0b7d3 b8c6ea3d c3e17ba7 0a000000 00000000>, height 262080
- */
-/**
- * 104.237.137.28:12024 relayed orphan block <e5f039a1 5aded373 bc91e3b7 d3220278 203d266f 6abfd905 1c25d8ac 18e66401>, previous <1b6808da 775416f2 a0c2a2f7 9b30965f 66e2d0aa a2ed13d9 404be95a d491adab>, last block is <e2d03582 76dcfdff 72ce027d 75b0b7d3 b8c6ea3d c3e17ba7 0a000000 00000000>, height 262080
- * 104.237.137.28:12024 relayed orphan block <6417a598 4ab15108 ce518fa0 d3c5d36b 97f9ab6d 81d0f52a 59299ae2 15da4fe6>, previous <e5f039a1 5aded373 bc91e3b7 d3220278 203d266f 6abfd905 1c25d8ac 18e66401>, last block is <e2d03582 76dcfdff 72ce027d 75b0b7d3 b8c6ea3d c3e17ba7 0a000000 00000000>, height 262080
- * 104.237.137.28:12024 relayed orphan block <4f1e9034 84be2eeb c298b795 24237191 3b9c8904 e61711a7 a37dbdd7 cc65ed55>, previous <6417a598 4ab15108 ce518fa0 d3c5d36b 97f9a
- */
-/**
- * 104.237.137.28:12024 relayed orphan block <89cfaa15 29ee4c7e d84fd253 e15ca4aa 08a5b87f a4ee498c 236c8f6c c1116e7b>, previous <264d3261 e949d87a 0a581efd c67fb209 27932e94 ae133b3d 28d3613c 7e8dd4e3>, last block is <e2d03582 76dcfdff 72ce027d 75b0b7d3 b8c6ea3d c3e17ba7 0a000000 00000000>, height 262080
- * 104.237.137.28:12024 relayed orphan block <ab392e36 ccf0c79a e7fdbaa4 fc3c8f3e 3e6adff6 9d836122 66418318 4d441763>, previous <89cfaa15 29ee4c7e d84fd253 e15ca4aa 08a5b87f a4ee498c 236c8f6c c1116e7b>, last block is <e2d03582 76dcfdff 72ce027d 75b0b7d3 b8c6ea3d c3e17ba7 0a000000 00000000>, height 262080
- * 104.237.137.28:12024 relayed orphan block <c4050ccc efc3c7ec e956564e 93224a3c 85b5f6ae 0128c3d2 e43b5a72 a2036ab3>, previous <ab392e36 ccf0c79a e7fdbaa4 fc3c8f3e 3e6adff6 9d836122 66418318 4d441763>, last block is <e2d03582 76dcfdff 72ce027d 75b0b7d3 b8c6ea3d c3e17ba7 0a000000 00000000>, height 262080
- */
-// <e2d03582 76dcfdff 72ce027d 75b0b7d3 b8c6ea3d c3e17ba7 0a000000 00000000>, height 262080
 #import "BRPeer.h"
 #import "BRTransaction.h"
 #import "BRMerkleBlock.h"
@@ -58,7 +41,7 @@
 #define MAX_GETDATA_HASHES 50000
 #define ENABLED_SERVICES   0     // we don't provide full blocks to remote nodes
 #define PROTOCOL_VERSION   70003
-#define MIN_PROTO_VERSION  70003 // peers earlier than this protocol version not supported (need v0.9 txFee relay rules)
+#define MIN_PROTO_VERSION  70001 // peers earlier than this protocol version not supported (need v0.9 txFee relay rules)
 #define LOCAL_HOST         0x7f000001
 #define CONNECT_TIMEOUT    3000.0
 

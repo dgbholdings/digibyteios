@@ -71,7 +71,7 @@
 "t1j-JZ-FW0.text" = "nuk ka transaksione";
 
 /* Class = "UILabel"; text = "digiwallet v%ver%%net%\ncopyright © 2015 DigiByte LLC\n\nthis app is open source"; ObjectID = "uvz-hk-Nr4"; */
-"uvz-hk-Nr4.text" = "digiwallet v%ver%%net%\ncopyright © 2015 DigiByte LLC\n\nky aplikacion është me kod të hapur";
+"uvz-hk-Nr4.text" = "DigiWallet v%ver%%net%\ncopyright © 2015 DigiByte Holdings Ltd.\n\nky aplikacion është me kod të hapur";
 
 /* Class = "UILabel"; text = "start a new wallet by generating a wallet recovery phrase"; ObjectID = "wDZ-DN-szv"; */
 "wDZ-DN-szv.text" = "starto një kuletë të re duke gjeneruar një frazë rikthyese";
