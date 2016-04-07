@@ -45,11 +45,9 @@
 #define FIXED_PEERS          @"FixedPeers"
 // Sitt 2015-12-09 YOLO
 // #define PROTOCOL_TIMEOUT     20.0
-#define PROTOCOL_TIMEOUT 20.0
+#define PROTOCOL_TIMEOUT 15.0
 
-// Sitt 2015-12-09 YOLO
-// #define MAX_CONNECT_FAILURES 20 // notify user of network problems after this many connect failures in a row
-#define MAX_CONNECT_FAILURES 20
+#define MAX_CONNECT_FAILURES 20 // notify user of network problems after this many connect failures in a row
 
 #define CHECKPOINT_COUNT     (sizeof(checkpoint_array)/sizeof(*checkpoint_array))
 // Sitt 2015-11-09 #define GENESIS_BLOCK_HASH   (*(UInt256 *)@(checkpoint_array[0].hash).hexToData.reverse.bytes)
@@ -131,6 +129,7 @@ static const char *dns_seeds[] = {
     self.publishedCallback = [NSMutableDictionary dictionary];
     
     // Sitt 2016-02-18 Use Checkpoint from the First day of digiwallet fork (from breadWallet)
+    self.estimatedBlockHeight = 2149922;
     if ([BRWalletManager sharedInstance].isNewWallet == false) self.syncStartHeight = 2149922;
     else self.syncStartHeight = 145000;
 
@@ -329,6 +328,7 @@ static const char *dns_seeds[] = {
                                                                height:checkpoint_array[i].height];
             }
         }
+        
         
         if (_lastBlock.height > _estimatedBlockHeight) _estimatedBlockHeight = _lastBlock.height;
     }
