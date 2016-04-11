@@ -48,8 +48,8 @@
 #define PROTOCOL_TIMEOUT 15.0
 #define MAX_CONNECT_FAILURES 20 // notify user of network problems after this many connect failures in a row
 #define CHECKPOINT_COUNT     (sizeof(checkpoint_array)/sizeof(*checkpoint_array))
+
 // Sitt 2015-11-09 #define GENESIS_BLOCK_HASH   (*(UInt256 *)@(checkpoint_array[0].hash).hexToData.reverse.bytes)
-//#define GENESIS_BLOCK_HASH  (*(UInt256 *)@(checkpoint_array[0].hash).hexToData.reverse.bytes)
 #define GENESIS_BLOCK_HASH  (*(UInt256 *) @"7497ea1b465eb39f1c8f507bc877078fe016d6fcb6dfad3a64c98dcc6e1e8496".hexToData.reverse.bytes)
 #define SYNC_STARTHEIGHT_KEY @"SYNC_STARTHEIGHT"
 
@@ -70,10 +70,7 @@ static const char *dns_seeds[] = {
 };*/
 static const char *dns_seeds[] = {
 //    "seed1.digibyte.co", "seed2.hashdragon.com", "dgb.cryptoservices.net"
-    "216.250.125.121", "69.164.198.161", "163.172.13.124",
-    //"178.134.174.74", "90.184.246.117", "216.250.125.121"
-    //"450.790.10059</real>
-    //"74208230.160</real>
+    "216.250.125.121", "69.164.198.161", "163.172.13.124"
 };
 
 
@@ -125,10 +122,6 @@ static const char *dns_seeds[] = {
     self.txRequests = [NSMutableDictionary dictionary];
     self.publishedTx = [NSMutableDictionary dictionary];
     self.publishedCallback = [NSMutableDictionary dictionary];
-    
-    // Sitt 2016-02-18 Use Checkpoint from the First day of digiwallet fork (from breadWallet)
-    if ([BRWalletManager sharedInstance].isNewWallet == false) self.syncStartHeight = 2149922;
-    else self.syncStartHeight = 145000;
 
     self.backgroundObserver =
         [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidEnterBackgroundNotification object:nil
