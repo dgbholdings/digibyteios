@@ -60,7 +60,9 @@ static const struct { uint32_t height; char *hash; uint32_t timestamp; uint32_t 
     // Sitt 2016-02-18 Use Checkpoint from the First day of digiwallet fork (from breadWallet)
     {  145000, "f8d650dda836d5e3809b928b8523f050891c3bb9fa2c201bb04824a8a2fe7df6", 1409596362, 0x1c01f271},
     { 1800000, "72f46e1fff56518dce7e540b407260ea827cb1c4652f24eb1d1917f54b95d65a", 1454769372, 0x1c021355},
-    { 2149922, "557846763a5f1eb3205d175724bd26ba7123c17c49eaaadf20b67c7e20e3118a", 1460001303, 0x1c012a26}
+    { 2149922, "557846763a5f1eb3205d175724bd26ba7123c17c49eaaadf20b67c7e20e3118a", 1460001303, 0x1c012a26},
+    { 4444444, "0000000000000114de2ba1462056d2a9bd9ccfbd406cd2dfedaaef2c12910659", 1494132592, 0x1a01152f}
+
 };
 
 /* Sitt 2015-11-09
@@ -69,9 +71,10 @@ static const char *dns_seeds[] = {
     "seed.bitcoinstats.com.", "seed.bitnodes.io."
 };*/
 static const char *dns_seeds[] = {
-//    "seed1.digibyte.co", "seed2.hashdragon.com", "dgb.cryptoservices.net"
-//    "216.250.125.121", "69.164.198.161", "163.172.13.124"
-    "23.99.90.8", "52.169.28.0", "52.178.161.106", "66.228.56.115"
+    "seed.digibyte.co", "seed2.hashdragon.com", "dgb.cryptoservices.net"
+    "52.183.103.9", "138.91.245.174", "13.82.55.134", "66.228.56.115"
+};
+
 };
 
 
