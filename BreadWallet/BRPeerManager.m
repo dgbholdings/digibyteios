@@ -75,9 +75,6 @@ static const char *dns_seeds[] = {
     "52.183.103.9", "138.91.245.174", "13.82.55.134", "66.228.56.115"
 };
 
-};
-
-
 @interface BRPeerManager ()
 
 @property (nonatomic, strong) NSMutableOrderedSet *peers;
